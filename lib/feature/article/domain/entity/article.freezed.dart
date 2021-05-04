@@ -18,7 +18,7 @@ class _$SearchResultTearOff {
 
 // ignore: unused_element
   _SearchResult call(
-      {@required List<Page> pages, @required List<Article> items}) {
+      {@required List<ArticlePage> pages, @required List<Article> items}) {
     return _SearchResult(
       pages: pages,
       items: items,
@@ -37,7 +37,7 @@ const $SearchResult = _$SearchResultTearOff();
 
 /// @nodoc
 mixin _$SearchResult {
-  List<Page> get pages;
+  List<ArticlePage> get pages;
   List<Article> get items;
 
   Map<String, dynamic> toJson();
@@ -50,7 +50,7 @@ abstract class $SearchResultCopyWith<$Res> {
   factory $SearchResultCopyWith(
           SearchResult value, $Res Function(SearchResult) then) =
       _$SearchResultCopyWithImpl<$Res>;
-  $Res call({List<Page> pages, List<Article> items});
+  $Res call({List<ArticlePage> pages, List<Article> items});
 }
 
 /// @nodoc
@@ -67,7 +67,7 @@ class _$SearchResultCopyWithImpl<$Res> implements $SearchResultCopyWith<$Res> {
     Object items = freezed,
   }) {
     return _then(_value.copyWith(
-      pages: pages == freezed ? _value.pages : pages as List<Page>,
+      pages: pages == freezed ? _value.pages : pages as List<ArticlePage>,
       items: items == freezed ? _value.items : items as List<Article>,
     ));
   }
@@ -80,7 +80,7 @@ abstract class _$SearchResultCopyWith<$Res>
           _SearchResult value, $Res Function(_SearchResult) then) =
       __$SearchResultCopyWithImpl<$Res>;
   @override
-  $Res call({List<Page> pages, List<Article> items});
+  $Res call({List<ArticlePage> pages, List<Article> items});
 }
 
 /// @nodoc
@@ -99,7 +99,7 @@ class __$SearchResultCopyWithImpl<$Res> extends _$SearchResultCopyWithImpl<$Res>
     Object items = freezed,
   }) {
     return _then(_SearchResult(
-      pages: pages == freezed ? _value.pages : pages as List<Page>,
+      pages: pages == freezed ? _value.pages : pages as List<ArticlePage>,
       items: items == freezed ? _value.items : items as List<Article>,
     ));
   }
@@ -108,16 +108,17 @@ class __$SearchResultCopyWithImpl<$Res> extends _$SearchResultCopyWithImpl<$Res>
 @JsonSerializable()
 
 /// @nodoc
-class _$_SearchResult implements _SearchResult {
+class _$_SearchResult extends _SearchResult {
   const _$_SearchResult({@required this.pages, @required this.items})
       : assert(pages != null),
-        assert(items != null);
+        assert(items != null),
+        super._();
 
   factory _$_SearchResult.fromJson(Map<String, dynamic> json) =>
       _$_$_SearchResultFromJson(json);
 
   @override
-  final List<Page> pages;
+  final List<ArticlePage> pages;
   @override
   final List<Article> items;
 
@@ -153,16 +154,17 @@ class _$_SearchResult implements _SearchResult {
   }
 }
 
-abstract class _SearchResult implements SearchResult {
+abstract class _SearchResult extends SearchResult {
+  const _SearchResult._() : super._();
   const factory _SearchResult(
-      {@required List<Page> pages,
+      {@required List<ArticlePage> pages,
       @required List<Article> items}) = _$_SearchResult;
 
   factory _SearchResult.fromJson(Map<String, dynamic> json) =
       _$_SearchResult.fromJson;
 
   @override
-  List<Page> get pages;
+  List<ArticlePage> get pages;
   @override
   List<Article> get items;
   @override
@@ -170,18 +172,18 @@ abstract class _SearchResult implements SearchResult {
   _$SearchResultCopyWith<_SearchResult> get copyWith;
 }
 
-Page _$PageFromJson(Map<String, dynamic> json) {
-  return _Page.fromJson(json);
+ArticlePage _$ArticlePageFromJson(Map<String, dynamic> json) {
+  return _ArticlePage.fromJson(json);
 }
 
 /// @nodoc
-class _$PageTearOff {
-  const _$PageTearOff();
+class _$ArticlePageTearOff {
+  const _$ArticlePageTearOff();
 
 // ignore: unused_element
-  _Page call(
+  _ArticlePage call(
       {@required String id, @required String title, @required String itemId}) {
-    return _Page(
+    return _ArticlePage(
       id: id,
       title: title,
       itemId: itemId,
@@ -189,40 +191,41 @@ class _$PageTearOff {
   }
 
 // ignore: unused_element
-  Page fromJson(Map<String, Object> json) {
-    return Page.fromJson(json);
+  ArticlePage fromJson(Map<String, Object> json) {
+    return ArticlePage.fromJson(json);
   }
 }
 
 /// @nodoc
 // ignore: unused_element
-const $Page = _$PageTearOff();
+const $ArticlePage = _$ArticlePageTearOff();
 
 /// @nodoc
-mixin _$Page {
+mixin _$ArticlePage {
   String get id;
   String get title;
   String get itemId;
 
   Map<String, dynamic> toJson();
   @JsonKey(ignore: true)
-  $PageCopyWith<Page> get copyWith;
+  $ArticlePageCopyWith<ArticlePage> get copyWith;
 }
 
 /// @nodoc
-abstract class $PageCopyWith<$Res> {
-  factory $PageCopyWith(Page value, $Res Function(Page) then) =
-      _$PageCopyWithImpl<$Res>;
+abstract class $ArticlePageCopyWith<$Res> {
+  factory $ArticlePageCopyWith(
+          ArticlePage value, $Res Function(ArticlePage) then) =
+      _$ArticlePageCopyWithImpl<$Res>;
   $Res call({String id, String title, String itemId});
 }
 
 /// @nodoc
-class _$PageCopyWithImpl<$Res> implements $PageCopyWith<$Res> {
-  _$PageCopyWithImpl(this._value, this._then);
+class _$ArticlePageCopyWithImpl<$Res> implements $ArticlePageCopyWith<$Res> {
+  _$ArticlePageCopyWithImpl(this._value, this._then);
 
-  final Page _value;
+  final ArticlePage _value;
   // ignore: unused_field
-  final $Res Function(Page) _then;
+  final $Res Function(ArticlePage) _then;
 
   @override
   $Res call({
@@ -239,21 +242,24 @@ class _$PageCopyWithImpl<$Res> implements $PageCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$PageCopyWith<$Res> implements $PageCopyWith<$Res> {
-  factory _$PageCopyWith(_Page value, $Res Function(_Page) then) =
-      __$PageCopyWithImpl<$Res>;
+abstract class _$ArticlePageCopyWith<$Res>
+    implements $ArticlePageCopyWith<$Res> {
+  factory _$ArticlePageCopyWith(
+          _ArticlePage value, $Res Function(_ArticlePage) then) =
+      __$ArticlePageCopyWithImpl<$Res>;
   @override
   $Res call({String id, String title, String itemId});
 }
 
 /// @nodoc
-class __$PageCopyWithImpl<$Res> extends _$PageCopyWithImpl<$Res>
-    implements _$PageCopyWith<$Res> {
-  __$PageCopyWithImpl(_Page _value, $Res Function(_Page) _then)
-      : super(_value, (v) => _then(v as _Page));
+class __$ArticlePageCopyWithImpl<$Res> extends _$ArticlePageCopyWithImpl<$Res>
+    implements _$ArticlePageCopyWith<$Res> {
+  __$ArticlePageCopyWithImpl(
+      _ArticlePage _value, $Res Function(_ArticlePage) _then)
+      : super(_value, (v) => _then(v as _ArticlePage));
 
   @override
-  _Page get _value => super._value as _Page;
+  _ArticlePage get _value => super._value as _ArticlePage;
 
   @override
   $Res call({
@@ -261,7 +267,7 @@ class __$PageCopyWithImpl<$Res> extends _$PageCopyWithImpl<$Res>
     Object title = freezed,
     Object itemId = freezed,
   }) {
-    return _then(_Page(
+    return _then(_ArticlePage(
       id: id == freezed ? _value.id : id as String,
       title: title == freezed ? _value.title : title as String,
       itemId: itemId == freezed ? _value.itemId : itemId as String,
@@ -272,15 +278,15 @@ class __$PageCopyWithImpl<$Res> extends _$PageCopyWithImpl<$Res>
 @JsonSerializable()
 
 /// @nodoc
-class _$_Page implements _Page {
-  const _$_Page(
+class _$_ArticlePage implements _ArticlePage {
+  const _$_ArticlePage(
       {@required this.id, @required this.title, @required this.itemId})
       : assert(id != null),
         assert(title != null),
         assert(itemId != null);
 
-  factory _$_Page.fromJson(Map<String, dynamic> json) =>
-      _$_$_PageFromJson(json);
+  factory _$_ArticlePage.fromJson(Map<String, dynamic> json) =>
+      _$_$_ArticlePageFromJson(json);
 
   @override
   final String id;
@@ -291,13 +297,13 @@ class _$_Page implements _Page {
 
   @override
   String toString() {
-    return 'Page(id: $id, title: $title, itemId: $itemId)';
+    return 'ArticlePage(id: $id, title: $title, itemId: $itemId)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Page &&
+        (other is _ArticlePage &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.title, title) ||
@@ -315,22 +321,23 @@ class _$_Page implements _Page {
 
   @JsonKey(ignore: true)
   @override
-  _$PageCopyWith<_Page> get copyWith =>
-      __$PageCopyWithImpl<_Page>(this, _$identity);
+  _$ArticlePageCopyWith<_ArticlePage> get copyWith =>
+      __$ArticlePageCopyWithImpl<_ArticlePage>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_PageToJson(this);
+    return _$_$_ArticlePageToJson(this);
   }
 }
 
-abstract class _Page implements Page {
-  const factory _Page(
+abstract class _ArticlePage implements ArticlePage {
+  const factory _ArticlePage(
       {@required String id,
       @required String title,
-      @required String itemId}) = _$_Page;
+      @required String itemId}) = _$_ArticlePage;
 
-  factory _Page.fromJson(Map<String, dynamic> json) = _$_Page.fromJson;
+  factory _ArticlePage.fromJson(Map<String, dynamic> json) =
+      _$_ArticlePage.fromJson;
 
   @override
   String get id;
@@ -340,7 +347,7 @@ abstract class _Page implements Page {
   String get itemId;
   @override
   @JsonKey(ignore: true)
-  _$PageCopyWith<_Page> get copyWith;
+  _$ArticlePageCopyWith<_ArticlePage> get copyWith;
 }
 
 Article _$ArticleFromJson(Map<String, dynamic> json) {

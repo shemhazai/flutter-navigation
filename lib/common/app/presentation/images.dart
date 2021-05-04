@@ -10,7 +10,8 @@ class _Common {
   const _Common();
 
   String get chevronLeft24 => 'assets/images/ic_chevron_left_24.png';
-  String get chevronRight24 => 'assets/images/ic_chevron_left_24.png';
+  String get chevronRight24 => 'assets/images/ic_chevron_right_24.png';
+  String get search24 => 'assets/images/ic_search_24.png';
 }
 
 class _HomePage {

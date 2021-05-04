@@ -4,7 +4,8 @@
       "home": {
          "title": "Guten Morgen!",
          "search": "Suchen...",
-         "results": "ERGEBNISSE"
+         "results": "ERGEBNISSE",
+         "noResults": "Keine Ergebnisse"
       },
       "article": {
          "homeButton": "Zurück zur Startseite"

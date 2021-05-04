@@ -4,7 +4,8 @@
       "home": {
          "title": "Good morning!",
          "search": "Search...",
-         "results": "RESULTS"
+         "results": "RESULTS",
+         "noResults": "No results"
       },
       "article": {
          "homeButton": "Back to home"

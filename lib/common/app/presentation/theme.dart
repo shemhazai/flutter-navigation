@@ -58,7 +58,7 @@ TextTheme _buildTextTheme(AppColorScheme colorScheme) {
 
     caption: TextStyle(fontSize: 12, fontWeight: regular, color: colorScheme.textCaption),
 
-    overline: TextStyle(fontSize: 10, fontWeight: regular, color: colorScheme.textHeader),
+    overline: TextStyle(fontSize: 12, fontWeight: bold, color: colorScheme.textHeader),
 
     button: TextStyle(fontSize: 18, fontWeight: bold, color: colorScheme.textBody),
   ));
@@ -196,4 +196,5 @@ class Dimens {
   const Dimens();
 
   static const double buttonCornerRound = 4.0;
+  static const double horizontalPadding = 24.0;
 }
