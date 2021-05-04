@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:navigation/common/app/presentation/theme.dart';
 import 'package:navigation/generated/locale_keys.g.dart';
 
 void main() {
@@ -19,10 +20,8 @@ class MyApp extends StatelessWidget {
       fallbackLocale: Locale('en'),
       child: MaterialApp(
         onGenerateTitle: (BuildContext context) => LocaleKeys.title.tr(),
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
+        theme: lightTheme,
+        darkTheme: darkTheme,
         home: MyHomePage(title: 'Flutter Demo Home Page'),
       ),
     );
