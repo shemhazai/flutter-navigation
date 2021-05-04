@@ -1,0 +1,13 @@
+{
+   "title": "Navigation",
+   "page": {
+      "home": {
+         "title": "Good morning!",
+         "search": "Search...",
+         "results": "RESULTS"
+      },
+      "article": {
+         "homeButton": "Back to home"
+      }
+   }
+}

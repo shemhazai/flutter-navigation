@@ -1,0 +1,13 @@
+{
+   "title": "Navigation",
+   "page": {
+      "home": {
+         "title": "Guten Morgen!",
+         "search": "Suchen...",
+         "results": "ERGEBNISSE"
+      },
+      "article": {
+         "homeButton": "Zurück zur Startseite"
+      }
+   }
+}
