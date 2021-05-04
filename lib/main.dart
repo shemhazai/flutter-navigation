@@ -1,14 +1,16 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:navigation/common/app/data/core/app_environment.dart';
 import 'package:navigation/common/app/presentation/theme.dart';
+import 'package:navigation/di/di.dart';
 import 'package:navigation/generated/locale_keys.g.dart';
 
 void main() {
+  configureInjection(environment: develop);
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return EasyLocalization(

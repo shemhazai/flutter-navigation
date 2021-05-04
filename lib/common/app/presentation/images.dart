@@ -1,3 +1,4 @@
+/// Lists paths to images to avoid handwriting them when building an image widget.
 class Images {
   const Images._();
 
