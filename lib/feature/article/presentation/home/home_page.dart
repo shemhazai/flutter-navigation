@@ -7,6 +7,7 @@ import 'package:navigation/di/di.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:navigation/feature/article/domain/entity/article.dart';
 import 'package:navigation/generated/locale_keys.g.dart';
+import 'package:navigation/feature/article/presentation/article/article_page.dart';
 import 'package:navigation/feature/article/presentation/home/home_bloc.dart';
 
 class HomePage extends StatelessWidget {
@@ -87,7 +88,7 @@ class HomeBody extends StatelessWidget {
           ),
           contentPadding: EdgeInsets.all(12),
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(16)),
+            borderRadius: BorderRadius.all(Radius.circular(8)),
             borderSide: BorderSide.none,
           ),
         ),
@@ -172,24 +173,30 @@ class ArticleHeadlineWidget extends StatelessWidget {
         ),
         clipBehavior: Clip.antiAlias,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(16)),
+          borderRadius: BorderRadius.all(Radius.circular(8)),
         ),
         child: SizedBox(
           height: 100,
           child: Stack(children: [
             Positioned.fill(
-              child: Image.network(
-                headline.article.imageUrl,
-                fit: BoxFit.cover,
+              child: Hero(
+                tag: ArticlePage.buildImageTag(headline.article.id),
+                child: Image.network(
+                  headline.article.imageUrl,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             Positioned(
               top: 20,
               left: 20,
               right: 20,
-              child: Text(
-                headline.title,
-                style: Theme.of(context).textTheme.headline6.copyWith(color: foregroundColor),
+              child: Hero(
+                tag: ArticlePage.buildTitletag(headline.article.id),
+                child: Text(
+                  headline.title,
+                  style: Theme.of(context).textTheme.headline6.copyWith(color: foregroundColor),
+                ),
               ),
             ),
             Positioned(

@@ -19,6 +19,14 @@ class ArticlePage extends StatelessWidget {
     @required this.article,
   }) : super(key: key);
 
+  static String buildImageTag(String articleId) {
+    return 'image_article_$articleId';
+  }
+
+  static String buildTitletag(String articleId) {
+    return 'title_article_$articleId';
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +60,10 @@ class ArticleBody extends StatelessWidget {
     return Stack(children: [
       Positioned.fill(
         child: ListView(children: [
-          Image.network(article.imageUrl, fit: BoxFit.cover),
+          Hero(
+            tag: ArticlePage.buildImageTag(article.id),
+            child: Image.network(article.imageUrl, fit: BoxFit.cover),
+          ),
           _content(context, searchResult, article),
         ]),
       ),
@@ -86,7 +97,10 @@ class ArticleBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 32),
-          Text(article.title, style: Theme.of(context).textTheme.headline5),
+          Hero(
+            tag: ArticlePage.buildTitletag(article.id),
+            child: Text(article.title, style: Theme.of(context).textTheme.headline5),
+          ),
           SizedBox(height: 32),
           ArticleMarkdown(
             body: article.body,
