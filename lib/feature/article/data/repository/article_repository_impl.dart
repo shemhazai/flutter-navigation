@@ -8,7 +8,7 @@ class ArticleRepositoryImpl implements ArticleRepository {
   ArticleRepositoryImpl(this._api);
 
   @override
-  Future<SearchResult> getArticles(String query) {
+  Future<SearchResult> searchArticles(String query) {
     return _api.getArticles(query);
   }
 }

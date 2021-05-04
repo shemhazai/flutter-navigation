@@ -14,15 +14,15 @@ final Article article = Article(
   body: 'Body',
 );
 
-final ArticlePage page = ArticlePage(
+final ArticleHeadline headline = ArticleHeadline(
   id: '6788',
   title: 'Article page',
   itemId: article.id,
 );
 
-final HomeArticlePage homePage = HomeArticlePage(
-  id: page.id,
-  title: page.title,
+final HomeArticleHeadline homeHeadline = HomeArticleHeadline(
+  id: headline.id,
+  title: headline.title,
   article: article,
 );
 
@@ -37,8 +37,8 @@ void main() {
     blocTest(
       'emits loading and content after search',
       build: () {
-        when(useCase.getArticles('spacecraft')).thenAnswer((_) async => SearchResult(
-              pages: [page],
+        when(useCase.searchArticles('spacecraft')).thenAnswer((_) async => SearchResult(
+              pages: [headline],
               items: [article],
             ));
 
@@ -47,7 +47,13 @@ void main() {
       act: (bloc) => bloc.search('spacecraft'),
       expect: () => [
         HomeState.loading(),
-        HomeState.content(pages: [homePage]),
+        HomeState.content(
+          searchResult: SearchResult(
+            pages: [headline],
+            items: [article],
+          ),
+          headlines: [homeHeadline],
+        ),
       ],
     );
 
@@ -61,7 +67,7 @@ void main() {
     blocTest(
       'emits no results',
       build: () {
-        when(useCase.getArticles('spacecraft')).thenAnswer((_) async => SearchResult(
+        when(useCase.searchArticles('spacecraft')).thenAnswer((_) async => SearchResult(
               pages: [],
               items: [],
             ));

@@ -24,15 +24,18 @@ class _$HomeStateTearOff {
   }
 
 // ignore: unused_element
-  _Content content({@required List<HomeArticlePage> pages}) {
-    return _Content(
-      pages: pages,
-    );
+  _NoResults noResults() {
+    return const _NoResults();
   }
 
 // ignore: unused_element
-  _NoResults noResults() {
-    return const _NoResults();
+  _Content content(
+      {@required SearchResult searchResult,
+      @required List<HomeArticleHeadline> headlines}) {
+    return _Content(
+      searchResult: searchResult,
+      headlines: headlines,
+    );
   }
 }
 
@@ -46,30 +49,33 @@ mixin _$HomeState {
   TResult when<TResult extends Object>({
     @required TResult loading(),
     @required TResult empty(),
-    @required TResult content(List<HomeArticlePage> pages),
     @required TResult noResults(),
+    @required
+        TResult content(
+            SearchResult searchResult, List<HomeArticleHeadline> headlines),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult loading(),
     TResult empty(),
-    TResult content(List<HomeArticlePage> pages),
     TResult noResults(),
+    TResult content(
+        SearchResult searchResult, List<HomeArticleHeadline> headlines),
     @required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult loading(_Loading value),
     @required TResult empty(_Empty value),
-    @required TResult content(_Content value),
     @required TResult noResults(_NoResults value),
+    @required TResult content(_Content value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult loading(_Loading value),
     TResult empty(_Empty value),
-    TResult content(_Content value),
     TResult noResults(_NoResults value),
+    TResult content(_Content value),
     @required TResult orElse(),
   });
 }
@@ -127,13 +133,15 @@ class _$_Loading implements _Loading {
   TResult when<TResult extends Object>({
     @required TResult loading(),
     @required TResult empty(),
-    @required TResult content(List<HomeArticlePage> pages),
     @required TResult noResults(),
+    @required
+        TResult content(
+            SearchResult searchResult, List<HomeArticleHeadline> headlines),
   }) {
     assert(loading != null);
     assert(empty != null);
-    assert(content != null);
     assert(noResults != null);
+    assert(content != null);
     return loading();
   }
 
@@ -142,8 +150,9 @@ class _$_Loading implements _Loading {
   TResult maybeWhen<TResult extends Object>({
     TResult loading(),
     TResult empty(),
-    TResult content(List<HomeArticlePage> pages),
     TResult noResults(),
+    TResult content(
+        SearchResult searchResult, List<HomeArticleHeadline> headlines),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -158,13 +167,13 @@ class _$_Loading implements _Loading {
   TResult map<TResult extends Object>({
     @required TResult loading(_Loading value),
     @required TResult empty(_Empty value),
-    @required TResult content(_Content value),
     @required TResult noResults(_NoResults value),
+    @required TResult content(_Content value),
   }) {
     assert(loading != null);
     assert(empty != null);
-    assert(content != null);
     assert(noResults != null);
+    assert(content != null);
     return loading(this);
   }
 
@@ -173,8 +182,8 @@ class _$_Loading implements _Loading {
   TResult maybeMap<TResult extends Object>({
     TResult loading(_Loading value),
     TResult empty(_Empty value),
-    TResult content(_Content value),
     TResult noResults(_NoResults value),
+    TResult content(_Content value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -227,13 +236,15 @@ class _$_Empty implements _Empty {
   TResult when<TResult extends Object>({
     @required TResult loading(),
     @required TResult empty(),
-    @required TResult content(List<HomeArticlePage> pages),
     @required TResult noResults(),
+    @required
+        TResult content(
+            SearchResult searchResult, List<HomeArticleHeadline> headlines),
   }) {
     assert(loading != null);
     assert(empty != null);
-    assert(content != null);
     assert(noResults != null);
+    assert(content != null);
     return empty();
   }
 
@@ -242,8 +253,9 @@ class _$_Empty implements _Empty {
   TResult maybeWhen<TResult extends Object>({
     TResult loading(),
     TResult empty(),
-    TResult content(List<HomeArticlePage> pages),
     TResult noResults(),
+    TResult content(
+        SearchResult searchResult, List<HomeArticleHeadline> headlines),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -258,13 +270,13 @@ class _$_Empty implements _Empty {
   TResult map<TResult extends Object>({
     @required TResult loading(_Loading value),
     @required TResult empty(_Empty value),
-    @required TResult content(_Content value),
     @required TResult noResults(_NoResults value),
+    @required TResult content(_Content value),
   }) {
     assert(loading != null);
     assert(empty != null);
-    assert(content != null);
     assert(noResults != null);
+    assert(content != null);
     return empty(this);
   }
 
@@ -273,8 +285,8 @@ class _$_Empty implements _Empty {
   TResult maybeMap<TResult extends Object>({
     TResult loading(_Loading value),
     TResult empty(_Empty value),
-    TResult content(_Content value),
     TResult noResults(_NoResults value),
+    TResult content(_Content value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -287,132 +299,6 @@ class _$_Empty implements _Empty {
 
 abstract class _Empty implements HomeState {
   const factory _Empty() = _$_Empty;
-}
-
-/// @nodoc
-abstract class _$ContentCopyWith<$Res> {
-  factory _$ContentCopyWith(_Content value, $Res Function(_Content) then) =
-      __$ContentCopyWithImpl<$Res>;
-  $Res call({List<HomeArticlePage> pages});
-}
-
-/// @nodoc
-class __$ContentCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
-    implements _$ContentCopyWith<$Res> {
-  __$ContentCopyWithImpl(_Content _value, $Res Function(_Content) _then)
-      : super(_value, (v) => _then(v as _Content));
-
-  @override
-  _Content get _value => super._value as _Content;
-
-  @override
-  $Res call({
-    Object pages = freezed,
-  }) {
-    return _then(_Content(
-      pages: pages == freezed ? _value.pages : pages as List<HomeArticlePage>,
-    ));
-  }
-}
-
-/// @nodoc
-class _$_Content implements _Content {
-  const _$_Content({@required this.pages}) : assert(pages != null);
-
-  @override
-  final List<HomeArticlePage> pages;
-
-  @override
-  String toString() {
-    return 'HomeState.content(pages: $pages)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _Content &&
-            (identical(other.pages, pages) ||
-                const DeepCollectionEquality().equals(other.pages, pages)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(pages);
-
-  @JsonKey(ignore: true)
-  @override
-  _$ContentCopyWith<_Content> get copyWith =>
-      __$ContentCopyWithImpl<_Content>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult loading(),
-    @required TResult empty(),
-    @required TResult content(List<HomeArticlePage> pages),
-    @required TResult noResults(),
-  }) {
-    assert(loading != null);
-    assert(empty != null);
-    assert(content != null);
-    assert(noResults != null);
-    return content(pages);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult loading(),
-    TResult empty(),
-    TResult content(List<HomeArticlePage> pages),
-    TResult noResults(),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (content != null) {
-      return content(pages);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult loading(_Loading value),
-    @required TResult empty(_Empty value),
-    @required TResult content(_Content value),
-    @required TResult noResults(_NoResults value),
-  }) {
-    assert(loading != null);
-    assert(empty != null);
-    assert(content != null);
-    assert(noResults != null);
-    return content(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult loading(_Loading value),
-    TResult empty(_Empty value),
-    TResult content(_Content value),
-    TResult noResults(_NoResults value),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (content != null) {
-      return content(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Content implements HomeState {
-  const factory _Content({@required List<HomeArticlePage> pages}) = _$_Content;
-
-  List<HomeArticlePage> get pages;
-  @JsonKey(ignore: true)
-  _$ContentCopyWith<_Content> get copyWith;
 }
 
 /// @nodoc
@@ -454,13 +340,15 @@ class _$_NoResults implements _NoResults {
   TResult when<TResult extends Object>({
     @required TResult loading(),
     @required TResult empty(),
-    @required TResult content(List<HomeArticlePage> pages),
     @required TResult noResults(),
+    @required
+        TResult content(
+            SearchResult searchResult, List<HomeArticleHeadline> headlines),
   }) {
     assert(loading != null);
     assert(empty != null);
-    assert(content != null);
     assert(noResults != null);
+    assert(content != null);
     return noResults();
   }
 
@@ -469,8 +357,9 @@ class _$_NoResults implements _NoResults {
   TResult maybeWhen<TResult extends Object>({
     TResult loading(),
     TResult empty(),
-    TResult content(List<HomeArticlePage> pages),
     TResult noResults(),
+    TResult content(
+        SearchResult searchResult, List<HomeArticleHeadline> headlines),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -485,13 +374,13 @@ class _$_NoResults implements _NoResults {
   TResult map<TResult extends Object>({
     @required TResult loading(_Loading value),
     @required TResult empty(_Empty value),
-    @required TResult content(_Content value),
     @required TResult noResults(_NoResults value),
+    @required TResult content(_Content value),
   }) {
     assert(loading != null);
     assert(empty != null);
-    assert(content != null);
     assert(noResults != null);
+    assert(content != null);
     return noResults(this);
   }
 
@@ -500,8 +389,8 @@ class _$_NoResults implements _NoResults {
   TResult maybeMap<TResult extends Object>({
     TResult loading(_Loading value),
     TResult empty(_Empty value),
-    TResult content(_Content value),
     TResult noResults(_NoResults value),
+    TResult content(_Content value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -517,8 +406,168 @@ abstract class _NoResults implements HomeState {
 }
 
 /// @nodoc
-class _$HomeArticlePageTearOff {
-  const _$HomeArticlePageTearOff();
+abstract class _$ContentCopyWith<$Res> {
+  factory _$ContentCopyWith(_Content value, $Res Function(_Content) then) =
+      __$ContentCopyWithImpl<$Res>;
+  $Res call({SearchResult searchResult, List<HomeArticleHeadline> headlines});
+
+  $SearchResultCopyWith<$Res> get searchResult;
+}
+
+/// @nodoc
+class __$ContentCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
+    implements _$ContentCopyWith<$Res> {
+  __$ContentCopyWithImpl(_Content _value, $Res Function(_Content) _then)
+      : super(_value, (v) => _then(v as _Content));
+
+  @override
+  _Content get _value => super._value as _Content;
+
+  @override
+  $Res call({
+    Object searchResult = freezed,
+    Object headlines = freezed,
+  }) {
+    return _then(_Content(
+      searchResult: searchResult == freezed
+          ? _value.searchResult
+          : searchResult as SearchResult,
+      headlines: headlines == freezed
+          ? _value.headlines
+          : headlines as List<HomeArticleHeadline>,
+    ));
+  }
+
+  @override
+  $SearchResultCopyWith<$Res> get searchResult {
+    if (_value.searchResult == null) {
+      return null;
+    }
+    return $SearchResultCopyWith<$Res>(_value.searchResult, (value) {
+      return _then(_value.copyWith(searchResult: value));
+    });
+  }
+}
+
+/// @nodoc
+class _$_Content implements _Content {
+  const _$_Content({@required this.searchResult, @required this.headlines})
+      : assert(searchResult != null),
+        assert(headlines != null);
+
+  @override
+  final SearchResult searchResult;
+  @override
+  final List<HomeArticleHeadline> headlines;
+
+  @override
+  String toString() {
+    return 'HomeState.content(searchResult: $searchResult, headlines: $headlines)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _Content &&
+            (identical(other.searchResult, searchResult) ||
+                const DeepCollectionEquality()
+                    .equals(other.searchResult, searchResult)) &&
+            (identical(other.headlines, headlines) ||
+                const DeepCollectionEquality()
+                    .equals(other.headlines, headlines)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(searchResult) ^
+      const DeepCollectionEquality().hash(headlines);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ContentCopyWith<_Content> get copyWith =>
+      __$ContentCopyWithImpl<_Content>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult loading(),
+    @required TResult empty(),
+    @required TResult noResults(),
+    @required
+        TResult content(
+            SearchResult searchResult, List<HomeArticleHeadline> headlines),
+  }) {
+    assert(loading != null);
+    assert(empty != null);
+    assert(noResults != null);
+    assert(content != null);
+    return content(searchResult, headlines);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult loading(),
+    TResult empty(),
+    TResult noResults(),
+    TResult content(
+        SearchResult searchResult, List<HomeArticleHeadline> headlines),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (content != null) {
+      return content(searchResult, headlines);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult loading(_Loading value),
+    @required TResult empty(_Empty value),
+    @required TResult noResults(_NoResults value),
+    @required TResult content(_Content value),
+  }) {
+    assert(loading != null);
+    assert(empty != null);
+    assert(noResults != null);
+    assert(content != null);
+    return content(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult loading(_Loading value),
+    TResult empty(_Empty value),
+    TResult noResults(_NoResults value),
+    TResult content(_Content value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (content != null) {
+      return content(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Content implements HomeState {
+  const factory _Content(
+      {@required SearchResult searchResult,
+      @required List<HomeArticleHeadline> headlines}) = _$_Content;
+
+  SearchResult get searchResult;
+  List<HomeArticleHeadline> get headlines;
+  @JsonKey(ignore: true)
+  _$ContentCopyWith<_Content> get copyWith;
+}
+
+/// @nodoc
+class _$HomeArticleHeadlineTearOff {
+  const _$HomeArticleHeadlineTearOff();
 
 // ignore: unused_element
   _HomeArticlePage call(
@@ -535,36 +584,36 @@ class _$HomeArticlePageTearOff {
 
 /// @nodoc
 // ignore: unused_element
-const $HomeArticlePage = _$HomeArticlePageTearOff();
+const $HomeArticleHeadline = _$HomeArticleHeadlineTearOff();
 
 /// @nodoc
-mixin _$HomeArticlePage {
+mixin _$HomeArticleHeadline {
   String get id;
   String get title;
   Article get article;
 
   @JsonKey(ignore: true)
-  $HomeArticlePageCopyWith<HomeArticlePage> get copyWith;
+  $HomeArticleHeadlineCopyWith<HomeArticleHeadline> get copyWith;
 }
 
 /// @nodoc
-abstract class $HomeArticlePageCopyWith<$Res> {
-  factory $HomeArticlePageCopyWith(
-          HomeArticlePage value, $Res Function(HomeArticlePage) then) =
-      _$HomeArticlePageCopyWithImpl<$Res>;
+abstract class $HomeArticleHeadlineCopyWith<$Res> {
+  factory $HomeArticleHeadlineCopyWith(
+          HomeArticleHeadline value, $Res Function(HomeArticleHeadline) then) =
+      _$HomeArticleHeadlineCopyWithImpl<$Res>;
   $Res call({String id, String title, Article article});
 
   $ArticleCopyWith<$Res> get article;
 }
 
 /// @nodoc
-class _$HomeArticlePageCopyWithImpl<$Res>
-    implements $HomeArticlePageCopyWith<$Res> {
-  _$HomeArticlePageCopyWithImpl(this._value, this._then);
+class _$HomeArticleHeadlineCopyWithImpl<$Res>
+    implements $HomeArticleHeadlineCopyWith<$Res> {
+  _$HomeArticleHeadlineCopyWithImpl(this._value, this._then);
 
-  final HomeArticlePage _value;
+  final HomeArticleHeadline _value;
   // ignore: unused_field
-  final $Res Function(HomeArticlePage) _then;
+  final $Res Function(HomeArticleHeadline) _then;
 
   @override
   $Res call({
@@ -592,7 +641,7 @@ class _$HomeArticlePageCopyWithImpl<$Res>
 
 /// @nodoc
 abstract class _$HomeArticlePageCopyWith<$Res>
-    implements $HomeArticlePageCopyWith<$Res> {
+    implements $HomeArticleHeadlineCopyWith<$Res> {
   factory _$HomeArticlePageCopyWith(
           _HomeArticlePage value, $Res Function(_HomeArticlePage) then) =
       __$HomeArticlePageCopyWithImpl<$Res>;
@@ -605,7 +654,7 @@ abstract class _$HomeArticlePageCopyWith<$Res>
 
 /// @nodoc
 class __$HomeArticlePageCopyWithImpl<$Res>
-    extends _$HomeArticlePageCopyWithImpl<$Res>
+    extends _$HomeArticleHeadlineCopyWithImpl<$Res>
     implements _$HomeArticlePageCopyWith<$Res> {
   __$HomeArticlePageCopyWithImpl(
       _HomeArticlePage _value, $Res Function(_HomeArticlePage) _then)
@@ -645,7 +694,7 @@ class _$_HomeArticlePage implements _HomeArticlePage {
 
   @override
   String toString() {
-    return 'HomeArticlePage(id: $id, title: $title, article: $article)';
+    return 'HomeArticleHeadline(id: $id, title: $title, article: $article)';
   }
 
   @override
@@ -673,7 +722,7 @@ class _$_HomeArticlePage implements _HomeArticlePage {
       __$HomeArticlePageCopyWithImpl<_HomeArticlePage>(this, _$identity);
 }
 
-abstract class _HomeArticlePage implements HomeArticlePage {
+abstract class _HomeArticlePage implements HomeArticleHeadline {
   const factory _HomeArticlePage(
       {@required String id,
       @required String title,

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:navigation/common/app/domain/service/navigator_service.dart';
 import 'package:navigation/common/app/presentation/images.dart';
 import 'package:navigation/common/app/presentation/theme.dart';
 import 'package:navigation/di/di.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:navigation/feature/article/domain/entity/article.dart';
 import 'package:navigation/generated/locale_keys.g.dart';
 import 'package:navigation/feature/article/presentation/home/home_bloc.dart';
 
@@ -22,6 +24,8 @@ class HomePage extends StatelessWidget {
 }
 
 class HomeBody extends StatelessWidget {
+  final NavigatorService _navigator = inject();
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<HomeBloc, HomeState>(
@@ -36,7 +40,7 @@ class HomeBody extends StatelessWidget {
             child: state.when(
               empty: () => _empty(context),
               loading: () => _loading(context),
-              content: (pages) => _content(context, pages),
+              content: (searchResult, headlines) => _content(context, searchResult, headlines),
               noResults: () => _noResults(context),
             ),
           ),
@@ -99,7 +103,16 @@ class HomeBody extends StatelessWidget {
     return Center(child: CircularProgressIndicator());
   }
 
-  Widget _content(BuildContext context, List<HomeArticlePage> pages) {
+  Widget _noResults(BuildContext context) {
+    return Center(
+      child: Text(
+        LocaleKeys.page_home_noResults.tr(),
+        style: Theme.of(context).textTheme.bodyText1,
+      ),
+    );
+  }
+
+  Widget _content(BuildContext context, SearchResult searchResult, List<HomeArticleHeadline> headlines) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -113,72 +126,84 @@ class HomeBody extends StatelessWidget {
         SizedBox(height: 8),
         Expanded(
           child: ListView.builder(
-            itemCount: pages.length,
+            itemCount: headlines.length,
             itemBuilder: (BuildContext context, int pos) {
-              return ArticlePageWidget(page: pages[pos]);
+              final HomeArticleHeadline headline = headlines[pos];
+              return ArticleHeadlineWidget(
+                headline: headline,
+                onPressed: () {
+                  FocusScope.of(context).unfocus();
+
+                  _navigator.navigateToPage(
+                    page: Destination.article(
+                      searchResult: searchResult,
+                      id: headline.article.id,
+                    ),
+                  );
+                },
+              );
             },
           ),
         ),
       ],
     );
   }
-
-  Widget _noResults(BuildContext context) {
-    return Center(
-      child: Text(
-        LocaleKeys.page_home_noResults.tr(),
-        style: Theme.of(context).textTheme.bodyText1,
-      ),
-    );
-  }
 }
 
-class ArticlePageWidget extends StatelessWidget {
-  final HomeArticlePage page;
+class ArticleHeadlineWidget extends StatelessWidget {
+  final HomeArticleHeadline headline;
+  final VoidCallback onPressed;
 
-  const ArticlePageWidget({Key key, @required this.page}) : super(key: key);
+  const ArticleHeadlineWidget({
+    Key key,
+    @required this.headline,
+    @required this.onPressed,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final Color foregroundColor = Colors.white;
-    return Card(
-      margin: EdgeInsets.symmetric(
-        horizontal: Dimens.horizontalPadding,
-        vertical: 8,
-      ),
-      clipBehavior: Clip.antiAlias,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(16)),
-      ),
-      child: SizedBox(
-        height: 100,
-        child: Stack(children: [
-          Positioned.fill(
-            child: Image.network(
-              page.article.imageUrl,
-              fit: BoxFit.fitWidth,
+    return GestureDetector(
+      onTap: onPressed,
+      child: Card(
+        margin: EdgeInsets.symmetric(
+          horizontal: Dimens.horizontalPadding,
+          vertical: 8,
+        ),
+        clipBehavior: Clip.antiAlias,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(16)),
+        ),
+        child: SizedBox(
+          height: 100,
+          child: Stack(children: [
+            Positioned.fill(
+              child: Image.network(
+                headline.article.imageUrl,
+                fit: BoxFit.cover,
+              ),
             ),
-          ),
-          Positioned(
-            top: 20,
-            left: 20,
-            right: 20,
-            child: Text(
-              page.title,
-              style: Theme.of(context).textTheme.headline6.copyWith(color: foregroundColor),
+            Positioned(
+              top: 20,
+              left: 20,
+              right: 20,
+              child: Text(
+                headline.title,
+                style: Theme.of(context).textTheme.headline6.copyWith(color: foregroundColor),
+              ),
             ),
-          ),
-          Positioned(
-            bottom: 12,
-            right: 12,
-            child: Image.asset(
-              Images.common.chevronRight24,
-              width: 24,
-              height: 24,
-              color: foregroundColor,
+            Positioned(
+              bottom: 12,
+              right: 12,
+              child: Image.asset(
+                Images.common.chevronRight24,
+                width: 24,
+                height: 24,
+                color: foregroundColor,
+              ),
             ),
-          ),
-        ]),
+          ]),
+        ),
       ),
     );
   }

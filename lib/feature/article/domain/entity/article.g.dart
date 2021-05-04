@@ -9,8 +9,9 @@ part of 'article.dart';
 _$_SearchResult _$_$_SearchResultFromJson(Map<String, dynamic> json) {
   return _$_SearchResult(
     pages: (json['pages'] as List)
-        ?.map((e) =>
-            e == null ? null : ArticlePage.fromJson(e as Map<String, dynamic>))
+        ?.map((e) => e == null
+            ? null
+            : ArticleHeadline.fromJson(e as Map<String, dynamic>))
         ?.toList(),
     items: (json['items'] as List)
         ?.map((e) =>
@@ -25,15 +26,15 @@ Map<String, dynamic> _$_$_SearchResultToJson(_$_SearchResult instance) =>
       'items': instance.items,
     };
 
-_$_ArticlePage _$_$_ArticlePageFromJson(Map<String, dynamic> json) {
-  return _$_ArticlePage(
+_$_ArticleHeadline _$_$_ArticleHeadlineFromJson(Map<String, dynamic> json) {
+  return _$_ArticleHeadline(
     id: json['id'] as String,
     title: json['title'] as String,
     itemId: json['itemId'] as String,
   );
 }
 
-Map<String, dynamic> _$_$_ArticlePageToJson(_$_ArticlePage instance) =>
+Map<String, dynamic> _$_$_ArticleHeadlineToJson(_$_ArticleHeadline instance) =>
     <String, dynamic>{
       'id': instance.id,
       'title': instance.title,

@@ -9,13 +9,16 @@ part 'home_bloc.freezed.dart';
 abstract class HomeState with _$HomeState {
   const factory HomeState.loading() = _Loading;
   const factory HomeState.empty() = _Empty;
-  const factory HomeState.content({@required List<HomeArticlePage> pages}) = _Content;
   const factory HomeState.noResults() = _NoResults;
+  const factory HomeState.content({
+    @required SearchResult searchResult,
+    @required List<HomeArticleHeadline> headlines,
+  }) = _Content;
 }
 
 @freezed
-abstract class HomeArticlePage with _$HomeArticlePage {
-  const factory HomeArticlePage({
+abstract class HomeArticleHeadline with _$HomeArticleHeadline {
+  const factory HomeArticleHeadline({
     @required String id,
     @required String title,
     @required Article article,
@@ -35,21 +38,21 @@ class HomeBloc extends BaseCubit<HomeState> {
 
     emit(HomeState.loading());
     try {
-      final SearchResult result = await _useCase.getArticles(text);
-      final List<HomeArticlePage> articles = _mapArticles(result);
+      final SearchResult result = await _useCase.searchArticles(text);
+      final List<HomeArticleHeadline> articles = _mapArticles(result);
       if (articles.isEmpty) {
         emit(HomeState.noResults());
       } else {
-        emit(HomeState.content(pages: articles));
+        emit(HomeState.content(searchResult: result, headlines: articles));
       }
     } catch (error) {
       emit(HomeState.noResults());
     }
   }
 
-  List<HomeArticlePage> _mapArticles(SearchResult result) {
+  List<HomeArticleHeadline> _mapArticles(SearchResult result) {
     return result.pages.map((e) {
-      return HomeArticlePage(
+      return HomeArticleHeadline(
         id: e.id,
         title: e.title,
         article: result.getArticle(e.itemId),

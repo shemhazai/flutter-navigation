@@ -8,7 +8,7 @@ class ArticleUseCaseImpl implements ArticleUseCase {
   ArticleUseCaseImpl(this._repository);
 
   @override
-  Future<SearchResult> getArticles(String query) {
-    return _repository.getArticles(query);
+  Future<SearchResult> searchArticles(String query) {
+    return _repository.searchArticles(query);
   }
 }

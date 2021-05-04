@@ -7,7 +7,7 @@ part 'article.g.dart';
 abstract class SearchResult with _$SearchResult {
   const SearchResult._();
   const factory SearchResult({
-    @required List<ArticlePage> pages,
+    @required List<ArticleHeadline> pages,
     @required List<Article> items,
   }) = _SearchResult;
 
@@ -19,14 +19,14 @@ abstract class SearchResult with _$SearchResult {
 }
 
 @freezed
-abstract class ArticlePage with _$ArticlePage {
-  const factory ArticlePage({
+abstract class ArticleHeadline with _$ArticleHeadline {
+  const factory ArticleHeadline({
     @required String id,
     @required String title,
     @required String itemId,
-  }) = _ArticlePage;
+  }) = _ArticleHeadline;
 
-  factory ArticlePage.fromJson(Map<String, dynamic> json) => _$ArticlePageFromJson(json);
+  factory ArticleHeadline.fromJson(Map<String, dynamic> json) => _$ArticleHeadlineFromJson(json);
 }
 
 @freezed
