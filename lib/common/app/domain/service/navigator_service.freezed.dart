@@ -19,10 +19,11 @@ class _$DestinationTearOff {
   }
 
 // ignore: unused_element
-  _Article article({@required SearchResult searchResult, @required String id}) {
+  _Article article(
+      {@required SearchResult searchResult, @required Article article}) {
     return _Article(
       searchResult: searchResult,
-      id: id,
+      article: article,
     );
   }
 }
@@ -36,12 +37,12 @@ mixin _$Destination {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult home(),
-    @required TResult article(SearchResult searchResult, String id),
+    @required TResult article(SearchResult searchResult, Article article),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult home(),
-    TResult article(SearchResult searchResult, String id),
+    TResult article(SearchResult searchResult, Article article),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -110,7 +111,7 @@ class _$_Home implements _Home {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult home(),
-    @required TResult article(SearchResult searchResult, String id),
+    @required TResult article(SearchResult searchResult, Article article),
   }) {
     assert(home != null);
     assert(article != null);
@@ -121,7 +122,7 @@ class _$_Home implements _Home {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult home(),
-    TResult article(SearchResult searchResult, String id),
+    TResult article(SearchResult searchResult, Article article),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -165,9 +166,10 @@ abstract class _Home implements Destination {
 abstract class _$ArticleCopyWith<$Res> {
   factory _$ArticleCopyWith(_Article value, $Res Function(_Article) then) =
       __$ArticleCopyWithImpl<$Res>;
-  $Res call({SearchResult searchResult, String id});
+  $Res call({SearchResult searchResult, Article article});
 
   $SearchResultCopyWith<$Res> get searchResult;
+  $ArticleCopyWith<$Res> get article;
 }
 
 /// @nodoc
@@ -182,13 +184,13 @@ class __$ArticleCopyWithImpl<$Res> extends _$DestinationCopyWithImpl<$Res>
   @override
   $Res call({
     Object searchResult = freezed,
-    Object id = freezed,
+    Object article = freezed,
   }) {
     return _then(_Article(
       searchResult: searchResult == freezed
           ? _value.searchResult
           : searchResult as SearchResult,
-      id: id == freezed ? _value.id : id as String,
+      article: article == freezed ? _value.article : article as Article,
     ));
   }
 
@@ -201,22 +203,32 @@ class __$ArticleCopyWithImpl<$Res> extends _$DestinationCopyWithImpl<$Res>
       return _then(_value.copyWith(searchResult: value));
     });
   }
+
+  @override
+  $ArticleCopyWith<$Res> get article {
+    if (_value.article == null) {
+      return null;
+    }
+    return $ArticleCopyWith<$Res>(_value.article, (value) {
+      return _then(_value.copyWith(article: value));
+    });
+  }
 }
 
 /// @nodoc
 class _$_Article implements _Article {
-  const _$_Article({@required this.searchResult, @required this.id})
+  const _$_Article({@required this.searchResult, @required this.article})
       : assert(searchResult != null),
-        assert(id != null);
+        assert(article != null);
 
   @override
   final SearchResult searchResult;
   @override
-  final String id;
+  final Article article;
 
   @override
   String toString() {
-    return 'Destination.article(searchResult: $searchResult, id: $id)';
+    return 'Destination.article(searchResult: $searchResult, article: $article)';
   }
 
   @override
@@ -226,15 +238,15 @@ class _$_Article implements _Article {
             (identical(other.searchResult, searchResult) ||
                 const DeepCollectionEquality()
                     .equals(other.searchResult, searchResult)) &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)));
+            (identical(other.article, article) ||
+                const DeepCollectionEquality().equals(other.article, article)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(searchResult) ^
-      const DeepCollectionEquality().hash(id);
+      const DeepCollectionEquality().hash(article);
 
   @JsonKey(ignore: true)
   @override
@@ -245,23 +257,23 @@ class _$_Article implements _Article {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult home(),
-    @required TResult article(SearchResult searchResult, String id),
+    @required TResult article(SearchResult searchResult, Article article),
   }) {
     assert(home != null);
     assert(article != null);
-    return article(searchResult, id);
+    return article(searchResult, this.article);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult home(),
-    TResult article(SearchResult searchResult, String id),
+    TResult article(SearchResult searchResult, Article article),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (article != null) {
-      return article(searchResult, id);
+      return article(searchResult, this.article);
     }
     return orElse();
   }
@@ -294,10 +306,11 @@ class _$_Article implements _Article {
 
 abstract class _Article implements Destination {
   const factory _Article(
-      {@required SearchResult searchResult, @required String id}) = _$_Article;
+      {@required SearchResult searchResult,
+      @required Article article}) = _$_Article;
 
   SearchResult get searchResult;
-  String get id;
+  Article get article;
   @JsonKey(ignore: true)
   _$ArticleCopyWith<_Article> get copyWith;
 }

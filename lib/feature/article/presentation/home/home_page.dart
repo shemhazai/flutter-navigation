@@ -137,7 +137,7 @@ class HomeBody extends StatelessWidget {
                   _navigator.navigateToPage(
                     page: Destination.article(
                       searchResult: searchResult,
-                      id: headline.article.id,
+                      article: headline.article,
                     ),
                   );
                 },
