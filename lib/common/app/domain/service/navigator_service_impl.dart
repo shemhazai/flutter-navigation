@@ -17,7 +17,8 @@ class NavigatorServiceImpl extends NavigatorService {
   }) {
     return page.when(
       home: () => _goToHome(context, replace),
-      article: (searchResult, article) => _goToArticle(context, replace, searchResult, article),
+      article: (searchResult, article, accentColor) =>
+          _goToArticle(context, replace, searchResult, article, accentColor),
     );
   }
 
@@ -31,10 +32,11 @@ class NavigatorServiceImpl extends NavigatorService {
     return null;
   }
 
-  Future<T> _goToArticle<T>(BuildContext context, bool replace, SearchResult searchResult, Article article) {
+  Future<T> _goToArticle<T>(
+      BuildContext context, bool replace, SearchResult searchResult, Article article, Color accentColor) {
     return _navigateTo(
       context: context,
-      destination: ArticlePage(searchResult: searchResult, article: article),
+      destination: ArticlePage(searchResult: searchResult, article: article, accentColor: accentColor),
       replace: replace,
       settings: RouteSettings(name: Routes.article),
     );

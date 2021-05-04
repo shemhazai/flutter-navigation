@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:navigation/common/app/presentation/images.dart';
 import 'package:navigation/common/app/presentation/theme.dart';
+import 'package:navigation/common/app/presentation/utils/image_color_recognizer.dart';
 import 'package:navigation/common/app/presentation/widgets/markdown_widget.dart';
 import 'package:navigation/di/di.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -12,12 +13,24 @@ class ArticlePage extends StatelessWidget {
   final NavigatorService _navigator = inject();
   final SearchResult searchResult;
   final Article article;
+  final Color accentColor;
 
   ArticlePage({
     Key key,
     @required this.searchResult,
     @required this.article,
+    @required this.accentColor,
   }) : super(key: key);
+
+  /// Navigates to the [ArticlePage]. The idea is to have a helper 
+  /// method which preresolves the accentColor to avoid cpu-intensive 
+  /// calculation when the transition is ongoing.
+  static Future<void> show({@required SearchResult searchResult, @required Article article}) async {
+    final Color color = await ImageColorRecognizer.getDominantColor(article.imageUrl);
+    final NavigatorService navigator = inject();
+    await navigator.navigateToPage(
+        page: Destination.article(searchResult: searchResult, article: article, accentColor: color));
+  }
 
   static String buildImageTag(String articleId) {
     return 'image_article_$articleId';
@@ -30,22 +43,21 @@ class ArticlePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: ArticleBody(
-          searchResult: searchResult,
-          article: article,
+        body: SafeArea(
+          child: ArticleBody(
+            searchResult: searchResult,
+            article: article,
+          ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton.extended(
-        label: Text(LocaleKeys.page_article_homeButton.tr()),
-        onPressed: () => _navigator.navigateToPage(page: Destination.home()),
-      ),
-    );
+        floatingActionButton: FloatingActionButton.extended(
+          backgroundColor: accentColor,
+          label: Text(LocaleKeys.page_article_homeButton.tr()),
+          onPressed: () => _navigator.navigateToPage(page: Destination.home()),
+        ));
   }
 }
 
 class ArticleBody extends StatelessWidget {
-  final NavigatorService _navigator = inject();
   final SearchResult searchResult;
   final Article article;
 
@@ -104,11 +116,9 @@ class ArticleBody extends StatelessWidget {
           SizedBox(height: 32),
           ArticleMarkdown(
             body: article.body,
-            onTapArticle: (String articleId) => _navigator.navigateToPage(
-              page: Destination.article(
-                searchResult: searchResult,
-                article: searchResult.getArticle(articleId),
-              ),
+            onTapArticle: (String articleId) => ArticlePage.show(
+              searchResult: searchResult,
+              article: searchResult.getArticle(articleId),
             ),
           ),
           SizedBox(height: 80),

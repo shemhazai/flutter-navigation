@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:navigation/common/app/domain/service/navigator_service.dart';
 import 'package:navigation/common/app/presentation/images.dart';
 import 'package:navigation/common/app/presentation/theme.dart';
 import 'package:navigation/di/di.dart';
@@ -25,8 +24,6 @@ class HomePage extends StatelessWidget {
 }
 
 class HomeBody extends StatelessWidget {
-  final NavigatorService _navigator = inject();
-
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<HomeBloc, HomeState>(
@@ -135,12 +132,7 @@ class HomeBody extends StatelessWidget {
                 onPressed: () {
                   FocusScope.of(context).unfocus();
 
-                  _navigator.navigateToPage(
-                    page: Destination.article(
-                      searchResult: searchResult,
-                      article: headline.article,
-                    ),
-                  );
+                  ArticlePage.show(searchResult: searchResult, article: headline.article);
                 },
               );
             },

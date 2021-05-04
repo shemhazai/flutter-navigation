@@ -20,10 +20,13 @@ class _$DestinationTearOff {
 
 // ignore: unused_element
   _Article article(
-      {@required SearchResult searchResult, @required Article article}) {
+      {@required SearchResult searchResult,
+      @required Article article,
+      Color accentColor}) {
     return _Article(
       searchResult: searchResult,
       article: article,
+      accentColor: accentColor,
     );
   }
 }
@@ -37,12 +40,15 @@ mixin _$Destination {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult home(),
-    @required TResult article(SearchResult searchResult, Article article),
+    @required
+        TResult article(
+            SearchResult searchResult, Article article, Color accentColor),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult home(),
-    TResult article(SearchResult searchResult, Article article),
+    TResult article(
+        SearchResult searchResult, Article article, Color accentColor),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -111,7 +117,9 @@ class _$_Home implements _Home {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult home(),
-    @required TResult article(SearchResult searchResult, Article article),
+    @required
+        TResult article(
+            SearchResult searchResult, Article article, Color accentColor),
   }) {
     assert(home != null);
     assert(article != null);
@@ -122,7 +130,8 @@ class _$_Home implements _Home {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult home(),
-    TResult article(SearchResult searchResult, Article article),
+    TResult article(
+        SearchResult searchResult, Article article, Color accentColor),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -166,7 +175,7 @@ abstract class _Home implements Destination {
 abstract class _$ArticleCopyWith<$Res> {
   factory _$ArticleCopyWith(_Article value, $Res Function(_Article) then) =
       __$ArticleCopyWithImpl<$Res>;
-  $Res call({SearchResult searchResult, Article article});
+  $Res call({SearchResult searchResult, Article article, Color accentColor});
 
   $SearchResultCopyWith<$Res> get searchResult;
   $ArticleCopyWith<$Res> get article;
@@ -185,12 +194,15 @@ class __$ArticleCopyWithImpl<$Res> extends _$DestinationCopyWithImpl<$Res>
   $Res call({
     Object searchResult = freezed,
     Object article = freezed,
+    Object accentColor = freezed,
   }) {
     return _then(_Article(
       searchResult: searchResult == freezed
           ? _value.searchResult
           : searchResult as SearchResult,
       article: article == freezed ? _value.article : article as Article,
+      accentColor:
+          accentColor == freezed ? _value.accentColor : accentColor as Color,
     ));
   }
 
@@ -217,7 +229,8 @@ class __$ArticleCopyWithImpl<$Res> extends _$DestinationCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_Article implements _Article {
-  const _$_Article({@required this.searchResult, @required this.article})
+  const _$_Article(
+      {@required this.searchResult, @required this.article, this.accentColor})
       : assert(searchResult != null),
         assert(article != null);
 
@@ -225,10 +238,12 @@ class _$_Article implements _Article {
   final SearchResult searchResult;
   @override
   final Article article;
+  @override
+  final Color accentColor;
 
   @override
   String toString() {
-    return 'Destination.article(searchResult: $searchResult, article: $article)';
+    return 'Destination.article(searchResult: $searchResult, article: $article, accentColor: $accentColor)';
   }
 
   @override
@@ -239,14 +254,19 @@ class _$_Article implements _Article {
                 const DeepCollectionEquality()
                     .equals(other.searchResult, searchResult)) &&
             (identical(other.article, article) ||
-                const DeepCollectionEquality().equals(other.article, article)));
+                const DeepCollectionEquality()
+                    .equals(other.article, article)) &&
+            (identical(other.accentColor, accentColor) ||
+                const DeepCollectionEquality()
+                    .equals(other.accentColor, accentColor)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(searchResult) ^
-      const DeepCollectionEquality().hash(article);
+      const DeepCollectionEquality().hash(article) ^
+      const DeepCollectionEquality().hash(accentColor);
 
   @JsonKey(ignore: true)
   @override
@@ -257,23 +277,26 @@ class _$_Article implements _Article {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult home(),
-    @required TResult article(SearchResult searchResult, Article article),
+    @required
+        TResult article(
+            SearchResult searchResult, Article article, Color accentColor),
   }) {
     assert(home != null);
     assert(article != null);
-    return article(searchResult, this.article);
+    return article(searchResult, this.article, accentColor);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult home(),
-    TResult article(SearchResult searchResult, Article article),
+    TResult article(
+        SearchResult searchResult, Article article, Color accentColor),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (article != null) {
-      return article(searchResult, this.article);
+      return article(searchResult, this.article, accentColor);
     }
     return orElse();
   }
@@ -307,10 +330,12 @@ class _$_Article implements _Article {
 abstract class _Article implements Destination {
   const factory _Article(
       {@required SearchResult searchResult,
-      @required Article article}) = _$_Article;
+      @required Article article,
+      Color accentColor}) = _$_Article;
 
   SearchResult get searchResult;
   Article get article;
+  Color get accentColor;
   @JsonKey(ignore: true)
   _$ArticleCopyWith<_Article> get copyWith;
 }

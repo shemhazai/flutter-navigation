@@ -23,6 +23,7 @@ abstract class Destination with _$Destination {
   const factory Destination.article({
     @required SearchResult searchResult,
     @required Article article,
+    Color accentColor,
   }) = _Article;
 }
 
