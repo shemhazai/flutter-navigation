@@ -44,7 +44,7 @@ void main() {
 
         return HomeBloc(useCase);
       },
-      act: (bloc) => bloc.search('spacecraft'),
+      act: (HomeBloc bloc) => bloc.search('spacecraft'),
       expect: () => [
         HomeState.loading(),
         HomeState.content(
@@ -60,7 +60,7 @@ void main() {
     blocTest(
       'emits empty when query is empty',
       build: () => HomeBloc(useCase),
-      act: (bloc) => bloc.search(''),
+      act: (HomeBloc bloc) => bloc.search(''),
       expect: () => [HomeState.empty()],
     );
 
@@ -74,7 +74,7 @@ void main() {
 
         return HomeBloc(useCase);
       },
-      act: (bloc) => bloc.search('spacecraft'),
+      act: (HomeBloc bloc) => bloc.search('spacecraft'),
       expect: () => [
         HomeState.loading(),
         HomeState.noResults(),

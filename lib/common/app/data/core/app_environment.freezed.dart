@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'app_environment.dart';
 
@@ -9,12 +9,14 @@ part of 'app_environment.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$AppEnvironmentTearOff {
   const _$AppEnvironmentTearOff();
 
-// ignore: unused_element
-  _AppEnvironment call({@required String type, @required String baseUrl}) {
+  _AppEnvironment call({required String type, required String baseUrl}) {
     return _AppEnvironment(
       type: type,
       baseUrl: baseUrl,
@@ -23,16 +25,16 @@ class _$AppEnvironmentTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $AppEnvironment = _$AppEnvironmentTearOff();
 
 /// @nodoc
 mixin _$AppEnvironment {
-  String get type;
-  String get baseUrl;
+  String get type => throw _privateConstructorUsedError;
+  String get baseUrl => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $AppEnvironmentCopyWith<AppEnvironment> get copyWith;
+  $AppEnvironmentCopyWith<AppEnvironment> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -54,12 +56,18 @@ class _$AppEnvironmentCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object type = freezed,
-    Object baseUrl = freezed,
+    Object? type = freezed,
+    Object? baseUrl = freezed,
   }) {
     return _then(_value.copyWith(
-      type: type == freezed ? _value.type : type as String,
-      baseUrl: baseUrl == freezed ? _value.baseUrl : baseUrl as String,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      baseUrl: baseUrl == freezed
+          ? _value.baseUrl
+          : baseUrl // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -87,21 +95,26 @@ class __$AppEnvironmentCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object type = freezed,
-    Object baseUrl = freezed,
+    Object? type = freezed,
+    Object? baseUrl = freezed,
   }) {
     return _then(_AppEnvironment(
-      type: type == freezed ? _value.type : type as String,
-      baseUrl: baseUrl == freezed ? _value.baseUrl : baseUrl as String,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      baseUrl: baseUrl == freezed
+          ? _value.baseUrl
+          : baseUrl // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_AppEnvironment implements _AppEnvironment {
-  const _$_AppEnvironment({@required this.type, @required this.baseUrl})
-      : assert(type != null),
-        assert(baseUrl != null);
+  const _$_AppEnvironment({required this.type, required this.baseUrl});
 
   @override
   final String type;
@@ -137,13 +150,14 @@ class _$_AppEnvironment implements _AppEnvironment {
 
 abstract class _AppEnvironment implements AppEnvironment {
   const factory _AppEnvironment(
-      {@required String type, @required String baseUrl}) = _$_AppEnvironment;
+      {required String type, required String baseUrl}) = _$_AppEnvironment;
 
   @override
-  String get type;
+  String get type => throw _privateConstructorUsedError;
   @override
-  String get baseUrl;
+  String get baseUrl => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$AppEnvironmentCopyWith<_AppEnvironment> get copyWith;
+  _$AppEnvironmentCopyWith<_AppEnvironment> get copyWith =>
+      throw _privateConstructorUsedError;
 }

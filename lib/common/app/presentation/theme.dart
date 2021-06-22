@@ -110,32 +110,32 @@ class AppColorSchemes {
 
 /// Similar to [ColorScheme] but allows to define custom colors.
 @freezed
-abstract class AppColorScheme with _$AppColorScheme {
+class AppColorScheme with _$AppColorScheme {
   const AppColorScheme._();
 
   const factory AppColorScheme({
-    @required Brightness brightness,
+    required Brightness brightness,
 
     /// base
-    @required Color primary,
-    @required Color primaryVariant,
-    @required Color onPrimary,
-    @required Color secondary,
-    @required Color secondaryVariant,
-    @required Color onSecondary,
-    @required Color background,
-    @required Color onBackground,
-    @required Color surface,
-    @required Color onSurface,
-    @required Color error,
-    @required Color onError,
-    @required Color divider,
-    @required Color canvas,
+    required Color primary,
+    required Color primaryVariant,
+    required Color onPrimary,
+    required Color secondary,
+    required Color secondaryVariant,
+    required Color onSecondary,
+    required Color background,
+    required Color onBackground,
+    required Color surface,
+    required Color onSurface,
+    required Color error,
+    required Color onError,
+    required Color divider,
+    required Color canvas,
 
     /// texts
-    @required Color textHeader,
-    @required Color textBody,
-    @required Color textCaption,
+    required Color textHeader,
+    required Color textBody,
+    required Color textCaption,
   }) = _AppColorScheme;
 
   ColorScheme toColorScheme() {

@@ -10,9 +10,9 @@ class NavigatorServiceImpl extends NavigatorService {
   GlobalKey<NavigatorState> get key => _navigatorKey;
 
   @override
-  Future<T> navigateToPage<T>({
-    @required BuildContext context,
-    @required Destination page,
+  Future<T?> navigateToPage<T>({
+    BuildContext? context,
+    required Destination page,
     bool replace = false,
   }) {
     return page.when(
@@ -22,18 +22,18 @@ class NavigatorServiceImpl extends NavigatorService {
     );
   }
 
-  Future<T> _goToHome<T>(BuildContext context, bool replace) async {
+  Future<T?> _goToHome<T>(BuildContext? context, bool replace) async {
     if (context != null) {
       Navigator.popUntil(context, (route) => route.settings.name == Routes.home);
     } else {
-      _navigatorKey.currentState.popUntil((route) => route.settings.name == Routes.home);
+      _navigatorKey.currentState?.popUntil((route) => route.settings.name == Routes.home);
     }
 
     return null;
   }
 
-  Future<T> _goToArticle<T>(
-      BuildContext context, bool replace, SearchResult searchResult, Article article, Color accentColor) {
+  Future<T?> _goToArticle<T>(
+      BuildContext? context, bool replace, SearchResult searchResult, Article article, Color? accentColor) {
     return _navigateTo(
       context: context,
       destination: ArticlePage(searchResult: searchResult, article: article, accentColor: accentColor),
@@ -42,12 +42,12 @@ class NavigatorServiceImpl extends NavigatorService {
     );
   }
 
-  Future<T> _navigateTo<T>({
-    BuildContext context,
-    Widget destination,
+  Future<T?> _navigateTo<T>({
+    BuildContext? context,
+    required Widget destination,
     bool replace = false,
-    RouteSettings settings,
-  }) {
+    RouteSettings? settings,
+  }) async {
     final pageRoute = MaterialPageRoute<T>(
       builder: (context) => destination,
       settings: settings,
@@ -61,19 +61,19 @@ class NavigatorServiceImpl extends NavigatorService {
       }
     } else {
       if (replace) {
-        return _navigatorKey.currentState.pushReplacement(pageRoute);
+        return _navigatorKey.currentState?.pushReplacement(pageRoute);
       } else {
-        return _navigatorKey.currentState.push(pageRoute);
+        return _navigatorKey.currentState?.push(pageRoute);
       }
     }
   }
 
   @override
-  void pop({BuildContext context}) {
+  void pop({BuildContext? context}) {
     if (context != null) {
       Navigator.pop(context);
     } else {
-      _navigatorKey.currentState.pop();
+      _navigatorKey.currentState?.pop();
     }
   }
 }

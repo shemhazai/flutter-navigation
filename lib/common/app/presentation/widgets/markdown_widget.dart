@@ -6,11 +6,11 @@ typedef OnTapArticle = void Function(String articleId);
 /// Renders the markdown.
 class ArticleMarkdown extends StatelessWidget {
   final String body;
-  final OnTapArticle onTapArticle;
+  final OnTapArticle? onTapArticle;
 
   const ArticleMarkdown({
-    Key key,
-    @required this.body,
+    Key? key,
+    required this.body,
     this.onTapArticle,
   }) : super(key: key);
 
@@ -18,8 +18,8 @@ class ArticleMarkdown extends StatelessWidget {
   Widget build(BuildContext context) {
     return MarkdownBody(
       data: body,
-      onTapLink: (String text, String href, String title) {
-        final String articleId = _parseArticleId(href);
+      onTapLink: (String text, String? href, String title) {
+        final String? articleId = _parseArticleId(href);
         if (articleId != null) {
           onTapArticle?.call(articleId);
         }
@@ -30,7 +30,9 @@ class ArticleMarkdown extends StatelessWidget {
     );
   }
 
-  String _parseArticleId(String href) {
+  String? _parseArticleId(String? href) {
+    if (href == null) return null;
+
     final int index = href.indexOf(RegExp(':'));
     if (index < 0) return null;
     return href.substring(index + 1);

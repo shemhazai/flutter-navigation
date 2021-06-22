@@ -2,7 +2,7 @@
 
 Recruitment task for simpleclub
 
-## Generate code (DI, etc.)
+## Generate code (DI, flutter_gen, etc.)
 ```
 flutter pub run build_runner build --delete-conflicting-outputs
 ```

@@ -7,9 +7,9 @@ part 'navigator_service.freezed.dart';
 abstract class NavigatorService {
   GlobalKey<NavigatorState> get key;
 
-  Future<T> navigateToPage<T>({
-    BuildContext context,
-    @required Destination page,
+  Future<T?> navigateToPage<T>({
+    BuildContext? context,
+    required Destination page,
     bool replace = false,
   });
 
@@ -17,13 +17,13 @@ abstract class NavigatorService {
 }
 
 @freezed
-abstract class Destination with _$Destination {
+class Destination with _$Destination {
   const factory Destination.home() = _Home;
 
   const factory Destination.article({
-    @required SearchResult searchResult,
-    @required Article article,
-    Color accentColor,
+    required SearchResult searchResult,
+    required Article article,
+    Color? accentColor,
   }) = _Article;
 }
 

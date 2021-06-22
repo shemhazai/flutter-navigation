@@ -8,15 +8,12 @@ part of 'article.dart';
 
 _$_SearchResult _$_$_SearchResultFromJson(Map<String, dynamic> json) {
   return _$_SearchResult(
-    pages: (json['pages'] as List)
-        ?.map((e) => e == null
-            ? null
-            : ArticleHeadline.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
-    items: (json['items'] as List)
-        ?.map((e) =>
-            e == null ? null : Article.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    pages: (json['pages'] as List<dynamic>)
+        .map((e) => ArticleHeadline.fromJson(e as Map<String, dynamic>))
+        .toList(),
+    items: (json['items'] as List<dynamic>)
+        .map((e) => Article.fromJson(e as Map<String, dynamic>))
+        .toList(),
   );
 }
 

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:navigation/common/app/presentation/images.dart';
 import 'package:navigation/common/app/presentation/theme.dart';
 import 'package:navigation/di/di.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:navigation/feature/article/domain/entity/article.dart';
+import 'package:navigation/gen/assets.gen.dart';
 import 'package:navigation/generated/locale_keys.g.dart';
 import 'package:navigation/feature/article/presentation/article/article_page.dart';
 import 'package:navigation/feature/article/presentation/home/home_bloc.dart';
@@ -58,7 +58,7 @@ class HomeBody extends StatelessWidget {
           ),
         ),
         Image.asset(
-          Images.home.userAvatar48,
+          Assets.images.icUserAvatar48.path,
           width: 48,
           height: 48,
           color: Theme.of(context).colorScheme.primaryVariant,
@@ -78,7 +78,7 @@ class HomeBody extends StatelessWidget {
           filled: true,
           hintText: LocaleKeys.page_home_search.tr(),
           prefixIcon: Image.asset(
-            Images.common.search24,
+            Assets.images.icSearch24.path,
             width: 24,
             height: 24,
             color: Theme.of(context).colorScheme.primaryVariant,
@@ -145,12 +145,12 @@ class HomeBody extends StatelessWidget {
 
 class ArticleHeadlineWidget extends StatelessWidget {
   final HomeArticleHeadline headline;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   const ArticleHeadlineWidget({
-    Key key,
-    @required this.headline,
-    @required this.onPressed,
+    Key? key,
+    required this.headline,
+    required this.onPressed,
   }) : super(key: key);
 
   @override
@@ -187,7 +187,7 @@ class ArticleHeadlineWidget extends StatelessWidget {
                 tag: ArticlePage.buildTitletag(headline.article.id),
                 child: Text(
                   headline.title,
-                  style: Theme.of(context).textTheme.headline6.copyWith(color: foregroundColor),
+                  style: Theme.of(context).textTheme.headline6!.copyWith(color: foregroundColor),
                 ),
               ),
             ),
@@ -195,7 +195,7 @@ class ArticleHeadlineWidget extends StatelessWidget {
               bottom: 12,
               right: 12,
               child: Image.asset(
-                Images.common.chevronRight24,
+                Assets.images.icChevronRight24.path,
                 width: 24,
                 height: 24,
                 color: foregroundColor,

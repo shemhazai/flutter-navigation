@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'article.dart';
 
@@ -8,6 +8,10 @@ part of 'article.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 SearchResult _$SearchResultFromJson(Map<String, dynamic> json) {
   return _SearchResult.fromJson(json);
 }
@@ -16,33 +20,31 @@ SearchResult _$SearchResultFromJson(Map<String, dynamic> json) {
 class _$SearchResultTearOff {
   const _$SearchResultTearOff();
 
-// ignore: unused_element
   _SearchResult call(
-      {@required List<ArticleHeadline> pages, @required List<Article> items}) {
+      {required List<ArticleHeadline> pages, required List<Article> items}) {
     return _SearchResult(
       pages: pages,
       items: items,
     );
   }
 
-// ignore: unused_element
   SearchResult fromJson(Map<String, Object> json) {
     return SearchResult.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SearchResult = _$SearchResultTearOff();
 
 /// @nodoc
 mixin _$SearchResult {
-  List<ArticleHeadline> get pages;
-  List<Article> get items;
+  List<ArticleHeadline> get pages => throw _privateConstructorUsedError;
+  List<Article> get items => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SearchResultCopyWith<SearchResult> get copyWith;
+  $SearchResultCopyWith<SearchResult> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -63,12 +65,18 @@ class _$SearchResultCopyWithImpl<$Res> implements $SearchResultCopyWith<$Res> {
 
   @override
   $Res call({
-    Object pages = freezed,
-    Object items = freezed,
+    Object? pages = freezed,
+    Object? items = freezed,
   }) {
     return _then(_value.copyWith(
-      pages: pages == freezed ? _value.pages : pages as List<ArticleHeadline>,
-      items: items == freezed ? _value.items : items as List<Article>,
+      pages: pages == freezed
+          ? _value.pages
+          : pages // ignore: cast_nullable_to_non_nullable
+              as List<ArticleHeadline>,
+      items: items == freezed
+          ? _value.items
+          : items // ignore: cast_nullable_to_non_nullable
+              as List<Article>,
     ));
   }
 }
@@ -95,24 +103,26 @@ class __$SearchResultCopyWithImpl<$Res> extends _$SearchResultCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object pages = freezed,
-    Object items = freezed,
+    Object? pages = freezed,
+    Object? items = freezed,
   }) {
     return _then(_SearchResult(
-      pages: pages == freezed ? _value.pages : pages as List<ArticleHeadline>,
-      items: items == freezed ? _value.items : items as List<Article>,
+      pages: pages == freezed
+          ? _value.pages
+          : pages // ignore: cast_nullable_to_non_nullable
+              as List<ArticleHeadline>,
+      items: items == freezed
+          ? _value.items
+          : items // ignore: cast_nullable_to_non_nullable
+              as List<Article>,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_SearchResult extends _SearchResult {
-  const _$_SearchResult({@required this.pages, @required this.items})
-      : assert(pages != null),
-        assert(items != null),
-        super._();
+  const _$_SearchResult({required this.pages, required this.items}) : super._();
 
   factory _$_SearchResult.fromJson(Map<String, dynamic> json) =>
       _$_$_SearchResultFromJson(json);
@@ -155,21 +165,22 @@ class _$_SearchResult extends _SearchResult {
 }
 
 abstract class _SearchResult extends SearchResult {
-  const _SearchResult._() : super._();
   const factory _SearchResult(
-      {@required List<ArticleHeadline> pages,
-      @required List<Article> items}) = _$_SearchResult;
+      {required List<ArticleHeadline> pages,
+      required List<Article> items}) = _$_SearchResult;
+  const _SearchResult._() : super._();
 
   factory _SearchResult.fromJson(Map<String, dynamic> json) =
       _$_SearchResult.fromJson;
 
   @override
-  List<ArticleHeadline> get pages;
+  List<ArticleHeadline> get pages => throw _privateConstructorUsedError;
   @override
-  List<Article> get items;
+  List<Article> get items => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$SearchResultCopyWith<_SearchResult> get copyWith;
+  _$SearchResultCopyWith<_SearchResult> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 ArticleHeadline _$ArticleHeadlineFromJson(Map<String, dynamic> json) {
@@ -180,9 +191,8 @@ ArticleHeadline _$ArticleHeadlineFromJson(Map<String, dynamic> json) {
 class _$ArticleHeadlineTearOff {
   const _$ArticleHeadlineTearOff();
 
-// ignore: unused_element
   _ArticleHeadline call(
-      {@required String id, @required String title, @required String itemId}) {
+      {required String id, required String title, required String itemId}) {
     return _ArticleHeadline(
       id: id,
       title: title,
@@ -190,25 +200,24 @@ class _$ArticleHeadlineTearOff {
     );
   }
 
-// ignore: unused_element
   ArticleHeadline fromJson(Map<String, Object> json) {
     return ArticleHeadline.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ArticleHeadline = _$ArticleHeadlineTearOff();
 
 /// @nodoc
 mixin _$ArticleHeadline {
-  String get id;
-  String get title;
-  String get itemId;
+  String get id => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+  String get itemId => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ArticleHeadlineCopyWith<ArticleHeadline> get copyWith;
+  $ArticleHeadlineCopyWith<ArticleHeadline> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -230,14 +239,23 @@ class _$ArticleHeadlineCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object title = freezed,
-    Object itemId = freezed,
+    Object? id = freezed,
+    Object? title = freezed,
+    Object? itemId = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as String,
-      title: title == freezed ? _value.title : title as String,
-      itemId: itemId == freezed ? _value.itemId : itemId as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      itemId: itemId == freezed
+          ? _value.itemId
+          : itemId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -265,27 +283,32 @@ class __$ArticleHeadlineCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object title = freezed,
-    Object itemId = freezed,
+    Object? id = freezed,
+    Object? title = freezed,
+    Object? itemId = freezed,
   }) {
     return _then(_ArticleHeadline(
-      id: id == freezed ? _value.id : id as String,
-      title: title == freezed ? _value.title : title as String,
-      itemId: itemId == freezed ? _value.itemId : itemId as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      itemId: itemId == freezed
+          ? _value.itemId
+          : itemId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_ArticleHeadline implements _ArticleHeadline {
   const _$_ArticleHeadline(
-      {@required this.id, @required this.title, @required this.itemId})
-      : assert(id != null),
-        assert(title != null),
-        assert(itemId != null);
+      {required this.id, required this.title, required this.itemId});
 
   factory _$_ArticleHeadline.fromJson(Map<String, dynamic> json) =>
       _$_$_ArticleHeadlineFromJson(json);
@@ -334,22 +357,23 @@ class _$_ArticleHeadline implements _ArticleHeadline {
 
 abstract class _ArticleHeadline implements ArticleHeadline {
   const factory _ArticleHeadline(
-      {@required String id,
-      @required String title,
-      @required String itemId}) = _$_ArticleHeadline;
+      {required String id,
+      required String title,
+      required String itemId}) = _$_ArticleHeadline;
 
   factory _ArticleHeadline.fromJson(Map<String, dynamic> json) =
       _$_ArticleHeadline.fromJson;
 
   @override
-  String get id;
+  String get id => throw _privateConstructorUsedError;
   @override
-  String get title;
+  String get title => throw _privateConstructorUsedError;
   @override
-  String get itemId;
+  String get itemId => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ArticleHeadlineCopyWith<_ArticleHeadline> get copyWith;
+  _$ArticleHeadlineCopyWith<_ArticleHeadline> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 Article _$ArticleFromJson(Map<String, dynamic> json) {
@@ -360,12 +384,11 @@ Article _$ArticleFromJson(Map<String, dynamic> json) {
 class _$ArticleTearOff {
   const _$ArticleTearOff();
 
-// ignore: unused_element
   _Article call(
-      {@required String id,
-      @required String title,
-      @required String imageUrl,
-      @required String body}) {
+      {required String id,
+      required String title,
+      required String imageUrl,
+      required String body}) {
     return _Article(
       id: id,
       title: title,
@@ -374,26 +397,24 @@ class _$ArticleTearOff {
     );
   }
 
-// ignore: unused_element
   Article fromJson(Map<String, Object> json) {
     return Article.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $Article = _$ArticleTearOff();
 
 /// @nodoc
 mixin _$Article {
-  String get id;
-  String get title;
-  String get imageUrl;
-  String get body;
+  String get id => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+  String get imageUrl => throw _privateConstructorUsedError;
+  String get body => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ArticleCopyWith<Article> get copyWith;
+  $ArticleCopyWith<Article> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -413,16 +434,28 @@ class _$ArticleCopyWithImpl<$Res> implements $ArticleCopyWith<$Res> {
 
   @override
   $Res call({
-    Object id = freezed,
-    Object title = freezed,
-    Object imageUrl = freezed,
-    Object body = freezed,
+    Object? id = freezed,
+    Object? title = freezed,
+    Object? imageUrl = freezed,
+    Object? body = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as String,
-      title: title == freezed ? _value.title : title as String,
-      imageUrl: imageUrl == freezed ? _value.imageUrl : imageUrl as String,
-      body: body == freezed ? _value.body : body as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      imageUrl: imageUrl == freezed
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      body: body == freezed
+          ? _value.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -446,33 +479,40 @@ class __$ArticleCopyWithImpl<$Res> extends _$ArticleCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object title = freezed,
-    Object imageUrl = freezed,
-    Object body = freezed,
+    Object? id = freezed,
+    Object? title = freezed,
+    Object? imageUrl = freezed,
+    Object? body = freezed,
   }) {
     return _then(_Article(
-      id: id == freezed ? _value.id : id as String,
-      title: title == freezed ? _value.title : title as String,
-      imageUrl: imageUrl == freezed ? _value.imageUrl : imageUrl as String,
-      body: body == freezed ? _value.body : body as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      imageUrl: imageUrl == freezed
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      body: body == freezed
+          ? _value.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_Article implements _Article {
   const _$_Article(
-      {@required this.id,
-      @required this.title,
-      @required this.imageUrl,
-      @required this.body})
-      : assert(id != null),
-        assert(title != null),
-        assert(imageUrl != null),
-        assert(body != null);
+      {required this.id,
+      required this.title,
+      required this.imageUrl,
+      required this.body});
 
   factory _$_Article.fromJson(Map<String, dynamic> json) =>
       _$_$_ArticleFromJson(json);
@@ -527,22 +567,23 @@ class _$_Article implements _Article {
 
 abstract class _Article implements Article {
   const factory _Article(
-      {@required String id,
-      @required String title,
-      @required String imageUrl,
-      @required String body}) = _$_Article;
+      {required String id,
+      required String title,
+      required String imageUrl,
+      required String body}) = _$_Article;
 
   factory _Article.fromJson(Map<String, dynamic> json) = _$_Article.fromJson;
 
   @override
-  String get id;
+  String get id => throw _privateConstructorUsedError;
   @override
-  String get title;
+  String get title => throw _privateConstructorUsedError;
   @override
-  String get imageUrl;
+  String get imageUrl => throw _privateConstructorUsedError;
   @override
-  String get body;
+  String get body => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ArticleCopyWith<_Article> get copyWith;
+  _$ArticleCopyWith<_Article> get copyWith =>
+      throw _privateConstructorUsedError;
 }

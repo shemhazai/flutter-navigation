@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'home_bloc.dart';
 
@@ -9,29 +9,28 @@ part of 'home_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$HomeStateTearOff {
   const _$HomeStateTearOff();
 
-// ignore: unused_element
   _Loading loading() {
     return const _Loading();
   }
 
-// ignore: unused_element
   _Empty empty() {
     return const _Empty();
   }
 
-// ignore: unused_element
   _NoResults noResults() {
     return const _NoResults();
   }
 
-// ignore: unused_element
   _Content content(
-      {@required SearchResult searchResult,
-      @required List<HomeArticleHeadline> headlines}) {
+      {required SearchResult searchResult,
+      required List<HomeArticleHeadline> headlines}) {
     return _Content(
       searchResult: searchResult,
       headlines: headlines,
@@ -40,44 +39,48 @@ class _$HomeStateTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $HomeState = _$HomeStateTearOff();
 
 /// @nodoc
 mixin _$HomeState {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult loading(),
-    @required TResult empty(),
-    @required TResult noResults(),
-    @required
-        TResult content(
-            SearchResult searchResult, List<HomeArticleHeadline> headlines),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() loading,
+    required TResult Function() empty,
+    required TResult Function() noResults,
+    required TResult Function(
+            SearchResult searchResult, List<HomeArticleHeadline> headlines)
+        content,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult loading(),
-    TResult empty(),
-    TResult noResults(),
-    TResult content(
-        SearchResult searchResult, List<HomeArticleHeadline> headlines),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function()? empty,
+    TResult Function()? noResults,
+    TResult Function(
+            SearchResult searchResult, List<HomeArticleHeadline> headlines)?
+        content,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult loading(_Loading value),
-    @required TResult empty(_Empty value),
-    @required TResult noResults(_NoResults value),
-    @required TResult content(_Content value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Empty value) empty,
+    required TResult Function(_NoResults value) noResults,
+    required TResult Function(_Content value) content,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult loading(_Loading value),
-    TResult empty(_Empty value),
-    TResult noResults(_NoResults value),
-    TResult content(_Content value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Empty value)? empty,
+    TResult Function(_NoResults value)? noResults,
+    TResult Function(_Content value)? content,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -112,6 +115,7 @@ class __$LoadingCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_Loading implements _Loading {
   const _$_Loading();
 
@@ -130,32 +134,28 @@ class _$_Loading implements _Loading {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult loading(),
-    @required TResult empty(),
-    @required TResult noResults(),
-    @required
-        TResult content(
-            SearchResult searchResult, List<HomeArticleHeadline> headlines),
+  TResult when<TResult extends Object?>({
+    required TResult Function() loading,
+    required TResult Function() empty,
+    required TResult Function() noResults,
+    required TResult Function(
+            SearchResult searchResult, List<HomeArticleHeadline> headlines)
+        content,
   }) {
-    assert(loading != null);
-    assert(empty != null);
-    assert(noResults != null);
-    assert(content != null);
     return loading();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult loading(),
-    TResult empty(),
-    TResult noResults(),
-    TResult content(
-        SearchResult searchResult, List<HomeArticleHeadline> headlines),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function()? empty,
+    TResult Function()? noResults,
+    TResult Function(
+            SearchResult searchResult, List<HomeArticleHeadline> headlines)?
+        content,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loading != null) {
       return loading();
     }
@@ -164,29 +164,24 @@ class _$_Loading implements _Loading {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult loading(_Loading value),
-    @required TResult empty(_Empty value),
-    @required TResult noResults(_NoResults value),
-    @required TResult content(_Content value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Empty value) empty,
+    required TResult Function(_NoResults value) noResults,
+    required TResult Function(_Content value) content,
   }) {
-    assert(loading != null);
-    assert(empty != null);
-    assert(noResults != null);
-    assert(content != null);
     return loading(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult loading(_Loading value),
-    TResult empty(_Empty value),
-    TResult noResults(_NoResults value),
-    TResult content(_Content value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Empty value)? empty,
+    TResult Function(_NoResults value)? noResults,
+    TResult Function(_Content value)? content,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loading != null) {
       return loading(this);
     }
@@ -215,6 +210,7 @@ class __$EmptyCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_Empty implements _Empty {
   const _$_Empty();
 
@@ -233,32 +229,28 @@ class _$_Empty implements _Empty {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult loading(),
-    @required TResult empty(),
-    @required TResult noResults(),
-    @required
-        TResult content(
-            SearchResult searchResult, List<HomeArticleHeadline> headlines),
+  TResult when<TResult extends Object?>({
+    required TResult Function() loading,
+    required TResult Function() empty,
+    required TResult Function() noResults,
+    required TResult Function(
+            SearchResult searchResult, List<HomeArticleHeadline> headlines)
+        content,
   }) {
-    assert(loading != null);
-    assert(empty != null);
-    assert(noResults != null);
-    assert(content != null);
     return empty();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult loading(),
-    TResult empty(),
-    TResult noResults(),
-    TResult content(
-        SearchResult searchResult, List<HomeArticleHeadline> headlines),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function()? empty,
+    TResult Function()? noResults,
+    TResult Function(
+            SearchResult searchResult, List<HomeArticleHeadline> headlines)?
+        content,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (empty != null) {
       return empty();
     }
@@ -267,29 +259,24 @@ class _$_Empty implements _Empty {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult loading(_Loading value),
-    @required TResult empty(_Empty value),
-    @required TResult noResults(_NoResults value),
-    @required TResult content(_Content value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Empty value) empty,
+    required TResult Function(_NoResults value) noResults,
+    required TResult Function(_Content value) content,
   }) {
-    assert(loading != null);
-    assert(empty != null);
-    assert(noResults != null);
-    assert(content != null);
     return empty(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult loading(_Loading value),
-    TResult empty(_Empty value),
-    TResult noResults(_NoResults value),
-    TResult content(_Content value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Empty value)? empty,
+    TResult Function(_NoResults value)? noResults,
+    TResult Function(_Content value)? content,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (empty != null) {
       return empty(this);
     }
@@ -319,6 +306,7 @@ class __$NoResultsCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_NoResults implements _NoResults {
   const _$_NoResults();
 
@@ -337,32 +325,28 @@ class _$_NoResults implements _NoResults {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult loading(),
-    @required TResult empty(),
-    @required TResult noResults(),
-    @required
-        TResult content(
-            SearchResult searchResult, List<HomeArticleHeadline> headlines),
+  TResult when<TResult extends Object?>({
+    required TResult Function() loading,
+    required TResult Function() empty,
+    required TResult Function() noResults,
+    required TResult Function(
+            SearchResult searchResult, List<HomeArticleHeadline> headlines)
+        content,
   }) {
-    assert(loading != null);
-    assert(empty != null);
-    assert(noResults != null);
-    assert(content != null);
     return noResults();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult loading(),
-    TResult empty(),
-    TResult noResults(),
-    TResult content(
-        SearchResult searchResult, List<HomeArticleHeadline> headlines),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function()? empty,
+    TResult Function()? noResults,
+    TResult Function(
+            SearchResult searchResult, List<HomeArticleHeadline> headlines)?
+        content,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (noResults != null) {
       return noResults();
     }
@@ -371,29 +355,24 @@ class _$_NoResults implements _NoResults {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult loading(_Loading value),
-    @required TResult empty(_Empty value),
-    @required TResult noResults(_NoResults value),
-    @required TResult content(_Content value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Empty value) empty,
+    required TResult Function(_NoResults value) noResults,
+    required TResult Function(_Content value) content,
   }) {
-    assert(loading != null);
-    assert(empty != null);
-    assert(noResults != null);
-    assert(content != null);
     return noResults(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult loading(_Loading value),
-    TResult empty(_Empty value),
-    TResult noResults(_NoResults value),
-    TResult content(_Content value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Empty value)? empty,
+    TResult Function(_NoResults value)? noResults,
+    TResult Function(_Content value)? content,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (noResults != null) {
       return noResults(this);
     }
@@ -425,24 +404,23 @@ class __$ContentCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object searchResult = freezed,
-    Object headlines = freezed,
+    Object? searchResult = freezed,
+    Object? headlines = freezed,
   }) {
     return _then(_Content(
       searchResult: searchResult == freezed
           ? _value.searchResult
-          : searchResult as SearchResult,
+          : searchResult // ignore: cast_nullable_to_non_nullable
+              as SearchResult,
       headlines: headlines == freezed
           ? _value.headlines
-          : headlines as List<HomeArticleHeadline>,
+          : headlines // ignore: cast_nullable_to_non_nullable
+              as List<HomeArticleHeadline>,
     ));
   }
 
   @override
   $SearchResultCopyWith<$Res> get searchResult {
-    if (_value.searchResult == null) {
-      return null;
-    }
     return $SearchResultCopyWith<$Res>(_value.searchResult, (value) {
       return _then(_value.copyWith(searchResult: value));
     });
@@ -450,10 +428,9 @@ class __$ContentCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_Content implements _Content {
-  const _$_Content({@required this.searchResult, @required this.headlines})
-      : assert(searchResult != null),
-        assert(headlines != null);
+  const _$_Content({required this.searchResult, required this.headlines});
 
   @override
   final SearchResult searchResult;
@@ -490,32 +467,28 @@ class _$_Content implements _Content {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult loading(),
-    @required TResult empty(),
-    @required TResult noResults(),
-    @required
-        TResult content(
-            SearchResult searchResult, List<HomeArticleHeadline> headlines),
+  TResult when<TResult extends Object?>({
+    required TResult Function() loading,
+    required TResult Function() empty,
+    required TResult Function() noResults,
+    required TResult Function(
+            SearchResult searchResult, List<HomeArticleHeadline> headlines)
+        content,
   }) {
-    assert(loading != null);
-    assert(empty != null);
-    assert(noResults != null);
-    assert(content != null);
     return content(searchResult, headlines);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult loading(),
-    TResult empty(),
-    TResult noResults(),
-    TResult content(
-        SearchResult searchResult, List<HomeArticleHeadline> headlines),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function()? empty,
+    TResult Function()? noResults,
+    TResult Function(
+            SearchResult searchResult, List<HomeArticleHeadline> headlines)?
+        content,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (content != null) {
       return content(searchResult, headlines);
     }
@@ -524,29 +497,24 @@ class _$_Content implements _Content {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult loading(_Loading value),
-    @required TResult empty(_Empty value),
-    @required TResult noResults(_NoResults value),
-    @required TResult content(_Content value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Empty value) empty,
+    required TResult Function(_NoResults value) noResults,
+    required TResult Function(_Content value) content,
   }) {
-    assert(loading != null);
-    assert(empty != null);
-    assert(noResults != null);
-    assert(content != null);
     return content(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult loading(_Loading value),
-    TResult empty(_Empty value),
-    TResult noResults(_NoResults value),
-    TResult content(_Content value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Empty value)? empty,
+    TResult Function(_NoResults value)? noResults,
+    TResult Function(_Content value)? content,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (content != null) {
       return content(this);
     }
@@ -556,24 +524,22 @@ class _$_Content implements _Content {
 
 abstract class _Content implements HomeState {
   const factory _Content(
-      {@required SearchResult searchResult,
-      @required List<HomeArticleHeadline> headlines}) = _$_Content;
+      {required SearchResult searchResult,
+      required List<HomeArticleHeadline> headlines}) = _$_Content;
 
-  SearchResult get searchResult;
-  List<HomeArticleHeadline> get headlines;
+  SearchResult get searchResult => throw _privateConstructorUsedError;
+  List<HomeArticleHeadline> get headlines => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$ContentCopyWith<_Content> get copyWith;
+  _$ContentCopyWith<_Content> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$HomeArticleHeadlineTearOff {
   const _$HomeArticleHeadlineTearOff();
 
-// ignore: unused_element
   _HomeArticlePage call(
-      {@required String id,
-      @required String title,
-      @required Article article}) {
+      {required String id, required String title, required Article article}) {
     return _HomeArticlePage(
       id: id,
       title: title,
@@ -583,17 +549,17 @@ class _$HomeArticleHeadlineTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $HomeArticleHeadline = _$HomeArticleHeadlineTearOff();
 
 /// @nodoc
 mixin _$HomeArticleHeadline {
-  String get id;
-  String get title;
-  Article get article;
+  String get id => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+  Article get article => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $HomeArticleHeadlineCopyWith<HomeArticleHeadline> get copyWith;
+  $HomeArticleHeadlineCopyWith<HomeArticleHeadline> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -617,22 +583,28 @@ class _$HomeArticleHeadlineCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object title = freezed,
-    Object article = freezed,
+    Object? id = freezed,
+    Object? title = freezed,
+    Object? article = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as String,
-      title: title == freezed ? _value.title : title as String,
-      article: article == freezed ? _value.article : article as Article,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      article: article == freezed
+          ? _value.article
+          : article // ignore: cast_nullable_to_non_nullable
+              as Article,
     ));
   }
 
   @override
   $ArticleCopyWith<$Res> get article {
-    if (_value.article == null) {
-      return null;
-    }
     return $ArticleCopyWith<$Res>(_value.article, (value) {
       return _then(_value.copyWith(article: value));
     });
@@ -665,25 +637,32 @@ class __$HomeArticlePageCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object title = freezed,
-    Object article = freezed,
+    Object? id = freezed,
+    Object? title = freezed,
+    Object? article = freezed,
   }) {
     return _then(_HomeArticlePage(
-      id: id == freezed ? _value.id : id as String,
-      title: title == freezed ? _value.title : title as String,
-      article: article == freezed ? _value.article : article as Article,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      article: article == freezed
+          ? _value.article
+          : article // ignore: cast_nullable_to_non_nullable
+              as Article,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_HomeArticlePage implements _HomeArticlePage {
   const _$_HomeArticlePage(
-      {@required this.id, @required this.title, @required this.article})
-      : assert(id != null),
-        assert(title != null),
-        assert(article != null);
+      {required this.id, required this.title, required this.article});
 
   @override
   final String id;
@@ -724,17 +703,18 @@ class _$_HomeArticlePage implements _HomeArticlePage {
 
 abstract class _HomeArticlePage implements HomeArticleHeadline {
   const factory _HomeArticlePage(
-      {@required String id,
-      @required String title,
-      @required Article article}) = _$_HomeArticlePage;
+      {required String id,
+      required String title,
+      required Article article}) = _$_HomeArticlePage;
 
   @override
-  String get id;
+  String get id => throw _privateConstructorUsedError;
   @override
-  String get title;
+  String get title => throw _privateConstructorUsedError;
   @override
-  Article get article;
+  Article get article => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$HomeArticlePageCopyWith<_HomeArticlePage> get copyWith;
+  _$HomeArticlePageCopyWith<_HomeArticlePage> get copyWith =>
+      throw _privateConstructorUsedError;
 }

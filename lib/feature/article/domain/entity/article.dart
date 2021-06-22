@@ -4,11 +4,11 @@ part 'article.freezed.dart';
 part 'article.g.dart';
 
 @freezed
-abstract class SearchResult with _$SearchResult {
+class SearchResult with _$SearchResult {
   const SearchResult._();
   const factory SearchResult({
-    @required List<ArticleHeadline> pages,
-    @required List<Article> items,
+    required List<ArticleHeadline> pages,
+    required List<Article> items,
   }) = _SearchResult;
 
   factory SearchResult.fromJson(Map<String, dynamic> json) => _$SearchResultFromJson(json);
@@ -19,23 +19,23 @@ abstract class SearchResult with _$SearchResult {
 }
 
 @freezed
-abstract class ArticleHeadline with _$ArticleHeadline {
+class ArticleHeadline with _$ArticleHeadline {
   const factory ArticleHeadline({
-    @required String id,
-    @required String title,
-    @required String itemId,
+    required String id,
+    required String title,
+    required String itemId,
   }) = _ArticleHeadline;
 
   factory ArticleHeadline.fromJson(Map<String, dynamic> json) => _$ArticleHeadlineFromJson(json);
 }
 
 @freezed
-abstract class Article with _$Article {
+class Article with _$Article {
   const factory Article({
-    @required String id,
-    @required String title,
-    @required String imageUrl,
-    @required String body,
+    required String id,
+    required String title,
+    required String imageUrl,
+    required String body,
   }) = _Article;
 
   factory Article.fromJson(Map<String, dynamic> json) => _$ArticleFromJson(json);

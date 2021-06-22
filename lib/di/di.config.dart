@@ -26,7 +26,7 @@ import 'modules/use_cases_module.dart'
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
 _i1.GetIt $initGetIt(_i1.GetIt get,
-    {String environment, _i2.EnvironmentFilter environmentFilter}) {
+    {String? environment, _i2.EnvironmentFilter? environmentFilter}) {
   final gh = _i2.GetItHelper(get, environment, environmentFilter);
   final repositoriesModule = _$RepositoriesModule(get);
   final useCasesModule = _$UseCasesModule(get);

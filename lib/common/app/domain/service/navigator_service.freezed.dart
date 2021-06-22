@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'navigator_service.dart';
 
@@ -9,20 +9,21 @@ part of 'navigator_service.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$DestinationTearOff {
   const _$DestinationTearOff();
 
-// ignore: unused_element
   _Home home() {
     return const _Home();
   }
 
-// ignore: unused_element
   _Article article(
-      {@required SearchResult searchResult,
-      @required Article article,
-      Color accentColor}) {
+      {required SearchResult searchResult,
+      required Article article,
+      Color? accentColor}) {
     return _Article(
       searchResult: searchResult,
       article: article,
@@ -32,36 +33,40 @@ class _$DestinationTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $Destination = _$DestinationTearOff();
 
 /// @nodoc
 mixin _$Destination {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult home(),
-    @required
-        TResult article(
-            SearchResult searchResult, Article article, Color accentColor),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() home,
+    required TResult Function(
+            SearchResult searchResult, Article article, Color? accentColor)
+        article,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult home(),
-    TResult article(
-        SearchResult searchResult, Article article, Color accentColor),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? home,
+    TResult Function(
+            SearchResult searchResult, Article article, Color? accentColor)?
+        article,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult home(_Home value),
-    @required TResult article(_Article value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Home value) home,
+    required TResult Function(_Article value) article,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult home(_Home value),
-    TResult article(_Article value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Home value)? home,
+    TResult Function(_Article value)? article,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -97,6 +102,7 @@ class __$HomeCopyWithImpl<$Res> extends _$DestinationCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_Home implements _Home {
   const _$_Home();
 
@@ -115,26 +121,24 @@ class _$_Home implements _Home {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult home(),
-    @required
-        TResult article(
-            SearchResult searchResult, Article article, Color accentColor),
+  TResult when<TResult extends Object?>({
+    required TResult Function() home,
+    required TResult Function(
+            SearchResult searchResult, Article article, Color? accentColor)
+        article,
   }) {
-    assert(home != null);
-    assert(article != null);
     return home();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult home(),
-    TResult article(
-        SearchResult searchResult, Article article, Color accentColor),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? home,
+    TResult Function(
+            SearchResult searchResult, Article article, Color? accentColor)?
+        article,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (home != null) {
       return home();
     }
@@ -143,23 +147,20 @@ class _$_Home implements _Home {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult home(_Home value),
-    @required TResult article(_Article value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Home value) home,
+    required TResult Function(_Article value) article,
   }) {
-    assert(home != null);
-    assert(article != null);
     return home(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult home(_Home value),
-    TResult article(_Article value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Home value)? home,
+    TResult Function(_Article value)? article,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (home != null) {
       return home(this);
     }
@@ -175,7 +176,7 @@ abstract class _Home implements Destination {
 abstract class _$ArticleCopyWith<$Res> {
   factory _$ArticleCopyWith(_Article value, $Res Function(_Article) then) =
       __$ArticleCopyWithImpl<$Res>;
-  $Res call({SearchResult searchResult, Article article, Color accentColor});
+  $Res call({SearchResult searchResult, Article article, Color? accentColor});
 
   $SearchResultCopyWith<$Res> get searchResult;
   $ArticleCopyWith<$Res> get article;
@@ -192,25 +193,28 @@ class __$ArticleCopyWithImpl<$Res> extends _$DestinationCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object searchResult = freezed,
-    Object article = freezed,
-    Object accentColor = freezed,
+    Object? searchResult = freezed,
+    Object? article = freezed,
+    Object? accentColor = freezed,
   }) {
     return _then(_Article(
       searchResult: searchResult == freezed
           ? _value.searchResult
-          : searchResult as SearchResult,
-      article: article == freezed ? _value.article : article as Article,
-      accentColor:
-          accentColor == freezed ? _value.accentColor : accentColor as Color,
+          : searchResult // ignore: cast_nullable_to_non_nullable
+              as SearchResult,
+      article: article == freezed
+          ? _value.article
+          : article // ignore: cast_nullable_to_non_nullable
+              as Article,
+      accentColor: accentColor == freezed
+          ? _value.accentColor
+          : accentColor // ignore: cast_nullable_to_non_nullable
+              as Color?,
     ));
   }
 
   @override
   $SearchResultCopyWith<$Res> get searchResult {
-    if (_value.searchResult == null) {
-      return null;
-    }
     return $SearchResultCopyWith<$Res>(_value.searchResult, (value) {
       return _then(_value.copyWith(searchResult: value));
     });
@@ -218,9 +222,6 @@ class __$ArticleCopyWithImpl<$Res> extends _$DestinationCopyWithImpl<$Res>
 
   @override
   $ArticleCopyWith<$Res> get article {
-    if (_value.article == null) {
-      return null;
-    }
     return $ArticleCopyWith<$Res>(_value.article, (value) {
       return _then(_value.copyWith(article: value));
     });
@@ -228,18 +229,17 @@ class __$ArticleCopyWithImpl<$Res> extends _$DestinationCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_Article implements _Article {
   const _$_Article(
-      {@required this.searchResult, @required this.article, this.accentColor})
-      : assert(searchResult != null),
-        assert(article != null);
+      {required this.searchResult, required this.article, this.accentColor});
 
   @override
   final SearchResult searchResult;
   @override
   final Article article;
   @override
-  final Color accentColor;
+  final Color? accentColor;
 
   @override
   String toString() {
@@ -275,26 +275,24 @@ class _$_Article implements _Article {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult home(),
-    @required
-        TResult article(
-            SearchResult searchResult, Article article, Color accentColor),
+  TResult when<TResult extends Object?>({
+    required TResult Function() home,
+    required TResult Function(
+            SearchResult searchResult, Article article, Color? accentColor)
+        article,
   }) {
-    assert(home != null);
-    assert(article != null);
     return article(searchResult, this.article, accentColor);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult home(),
-    TResult article(
-        SearchResult searchResult, Article article, Color accentColor),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? home,
+    TResult Function(
+            SearchResult searchResult, Article article, Color? accentColor)?
+        article,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (article != null) {
       return article(searchResult, this.article, accentColor);
     }
@@ -303,23 +301,20 @@ class _$_Article implements _Article {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult home(_Home value),
-    @required TResult article(_Article value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Home value) home,
+    required TResult Function(_Article value) article,
   }) {
-    assert(home != null);
-    assert(article != null);
     return article(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult home(_Home value),
-    TResult article(_Article value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Home value)? home,
+    TResult Function(_Article value)? article,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (article != null) {
       return article(this);
     }
@@ -329,13 +324,14 @@ class _$_Article implements _Article {
 
 abstract class _Article implements Destination {
   const factory _Article(
-      {@required SearchResult searchResult,
-      @required Article article,
-      Color accentColor}) = _$_Article;
+      {required SearchResult searchResult,
+      required Article article,
+      Color? accentColor}) = _$_Article;
 
-  SearchResult get searchResult;
-  Article get article;
-  Color get accentColor;
+  SearchResult get searchResult => throw _privateConstructorUsedError;
+  Article get article => throw _privateConstructorUsedError;
+  Color? get accentColor => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$ArticleCopyWith<_Article> get copyWith;
+  _$ArticleCopyWith<_Article> get copyWith =>
+      throw _privateConstructorUsedError;
 }

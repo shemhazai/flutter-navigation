@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:navigation/common/app/presentation/images.dart';
 import 'package:navigation/common/app/presentation/theme.dart';
 import 'package:navigation/common/app/presentation/utils/image_color_recognizer.dart';
 import 'package:navigation/common/app/presentation/widgets/markdown_widget.dart';
@@ -7,26 +6,27 @@ import 'package:navigation/di/di.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:navigation/common/app/domain/service/navigator_service.dart';
 import 'package:navigation/feature/article/domain/entity/article.dart';
+import 'package:navigation/gen/assets.gen.dart';
 import 'package:navigation/generated/locale_keys.g.dart';
 
 class ArticlePage extends StatelessWidget {
   final NavigatorService _navigator = inject();
   final SearchResult searchResult;
   final Article article;
-  final Color accentColor;
+  final Color? accentColor;
 
   ArticlePage({
-    Key key,
-    @required this.searchResult,
-    @required this.article,
-    @required this.accentColor,
+    Key? key,
+    required this.searchResult,
+    required this.article,
+    required this.accentColor,
   }) : super(key: key);
 
   /// Navigates to the [ArticlePage]. The idea is to have a helper 
   /// method which preresolves the accentColor to avoid cpu-intensive 
   /// calculation when the transition is ongoing.
-  static Future<void> show({@required SearchResult searchResult, @required Article article}) async {
-    final Color color = await ImageColorRecognizer.getDominantColor(article.imageUrl);
+  static Future<void> show({required SearchResult searchResult, required Article article}) async {
+    final Color? color = await ImageColorRecognizer.getDominantColor(article.imageUrl);
     final NavigatorService navigator = inject();
     await navigator.navigateToPage(
         page: Destination.article(searchResult: searchResult, article: article, accentColor: color));
@@ -62,9 +62,9 @@ class ArticleBody extends StatelessWidget {
   final Article article;
 
   ArticleBody({
-    Key key,
-    @required this.searchResult,
-    @required this.article,
+    Key? key,
+    required this.searchResult,
+    required this.article,
   }) : super(key: key);
 
   @override
@@ -92,7 +92,7 @@ class ArticleBody extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.all(12),
           child: Image.asset(
-            Images.common.chevronLeft24,
+            Assets.images.icChevronLeft24.path,
             width: 24,
             height: 24,
             color: Theme.of(context).colorScheme.primary,
