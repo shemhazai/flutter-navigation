@@ -1,6 +1,6 @@
 # navigation
 
-Recruitment task for simpleclub
+A simple flutter application which demonstrates how to perform navigation in flutter as well as to render the .MD files.
 
 ## Generate code (DI, flutter_gen, etc.)
 ```
