@@ -7,7 +7,7 @@ import 'package:navigation/feature/article/domain/usecase/article_use_case.dart'
 
 class MockArticleUseCase extends Mock implements ArticleUseCase {}
 
-final Article article = Article(
+const Article article = Article(
   id: '1234',
   title: 'Article',
   imageUrl: 'https://www.wp.pl/img.png',
@@ -46,7 +46,7 @@ void main() {
       },
       act: (HomeBloc bloc) => bloc.search('spacecraft'),
       expect: () => [
-        HomeState.loading(),
+        const HomeState.loading(),
         HomeState.content(
           searchResult: SearchResult(
             pages: [headline],
@@ -61,13 +61,13 @@ void main() {
       'emits empty when query is empty',
       build: () => HomeBloc(useCase),
       act: (HomeBloc bloc) => bloc.search(''),
-      expect: () => [HomeState.empty()],
+      expect: () => [const HomeState.empty()],
     );
 
     blocTest(
       'emits no results',
       build: () {
-        when(useCase.searchArticles('spacecraft')).thenAnswer((_) async => SearchResult(
+        when(useCase.searchArticles('spacecraft')).thenAnswer((_) async => const SearchResult(
               pages: [],
               items: [],
             ));
@@ -76,8 +76,8 @@ void main() {
       },
       act: (HomeBloc bloc) => bloc.search('spacecraft'),
       expect: () => [
-        HomeState.loading(),
-        HomeState.noResults(),
+        const HomeState.loading(),
+        const HomeState.noResults(),
       ],
     );
   });

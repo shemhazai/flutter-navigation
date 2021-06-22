@@ -38,7 +38,7 @@ class NavigatorServiceImpl extends NavigatorService {
       context: context,
       destination: ArticlePage(searchResult: searchResult, article: article, accentColor: accentColor),
       replace: replace,
-      settings: RouteSettings(name: Routes.article),
+      settings: const RouteSettings(name: Routes.article),
     );
   }
 

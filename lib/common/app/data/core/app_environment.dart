@@ -10,7 +10,7 @@ class AppEnvironment with _$AppEnvironment {
   }) = _AppEnvironment;
 }
 
-final AppEnvironment develop = AppEnvironment(
+const AppEnvironment develop = AppEnvironment(
   type: 'develop',
   baseUrl: 'https://simpleclub-coding-challenges.web.app/navigating-dynamic-content/',
 );

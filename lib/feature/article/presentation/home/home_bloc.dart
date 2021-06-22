@@ -28,25 +28,25 @@ class HomeArticleHeadline with _$HomeArticleHeadline {
 class HomeBloc extends BaseCubit<HomeState> {
   final ArticleUseCase _useCase;
 
-  HomeBloc(this._useCase) : super(HomeState.empty());
+  HomeBloc(this._useCase) : super(const HomeState.empty());
 
   void search(String text) async {
     if (text.isEmpty) {
-      emit(HomeState.empty());
+      emit(const HomeState.empty());
       return;
     }
 
-    emit(HomeState.loading());
+    emit(const HomeState.loading());
     try {
       final SearchResult result = await _useCase.searchArticles(text);
       final List<HomeArticleHeadline> articles = _mapArticles(result);
       if (articles.isEmpty) {
-        emit(HomeState.noResults());
+        emit(const HomeState.noResults());
       } else {
         emit(HomeState.content(searchResult: result, headlines: articles));
       }
     } catch (error) {
-      emit(HomeState.noResults());
+      emit(const HomeState.noResults());
     }
   }
 

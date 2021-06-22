@@ -11,20 +11,22 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   configureInjection(environment: develop);
-  
+
   runApp(EasyLocalization(
-    supportedLocales: [
+    supportedLocales: const [
       Locale('en'),
       Locale('de'),
     ],
     path: 'assets/translations',
-    fallbackLocale: Locale('en'),
+    fallbackLocale: const Locale('en'),
     child: MyApp(),
   ));
 }
 
 class MyApp extends StatelessWidget {
   final NavigatorService _navigator = inject();
+
+  MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +40,7 @@ class MyApp extends StatelessWidget {
       navigatorKey: _navigator.key,
       initialRoute: Routes.home,
       routes: {
-        Routes.home: (context) => HomePage(),
+        Routes.home: (context) => const HomePage(),
       },
     );
   }

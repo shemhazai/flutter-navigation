@@ -22,8 +22,8 @@ class ArticlePage extends StatelessWidget {
     required this.accentColor,
   }) : super(key: key);
 
-  /// Navigates to the [ArticlePage]. The idea is to have a helper 
-  /// method which preresolves the accentColor to avoid cpu-intensive 
+  /// Navigates to the [ArticlePage]. The idea is to have a helper
+  /// method which preresolves the accentColor to avoid cpu-intensive
   /// calculation when the transition is ongoing.
   static Future<void> show({required SearchResult searchResult, required Article article}) async {
     final Color? color = await ImageColorRecognizer.getDominantColor(article.imageUrl);
@@ -52,7 +52,7 @@ class ArticlePage extends StatelessWidget {
         floatingActionButton: FloatingActionButton.extended(
           backgroundColor: accentColor,
           label: Text(LocaleKeys.page_article_homeButton.tr()),
-          onPressed: () => _navigator.navigateToPage(page: Destination.home()),
+          onPressed: () => _navigator.navigateToPage(page: const Destination.home()),
         ));
   }
 }
@@ -61,7 +61,7 @@ class ArticleBody extends StatelessWidget {
   final SearchResult searchResult;
   final Article article;
 
-  ArticleBody({
+  const ArticleBody({
     Key? key,
     required this.searchResult,
     required this.article,
@@ -88,9 +88,9 @@ class ArticleBody extends StatelessWidget {
       color: Colors.transparent,
       child: InkWell(
         onTap: () => Navigator.of(context).pop(),
-        borderRadius: BorderRadius.all(Radius.circular(24)),
+        borderRadius: const BorderRadius.all(Radius.circular(24)),
         child: Padding(
-          padding: EdgeInsets.all(12),
+          padding: const EdgeInsets.all(12),
           child: Image.asset(
             Assets.images.icChevronLeft24.path,
             width: 24,
@@ -104,16 +104,16 @@ class ArticleBody extends StatelessWidget {
 
   Widget _content(BuildContext context, SearchResult searchResult, Article article) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: Dimens.horizontalPadding),
+      padding: const EdgeInsets.symmetric(horizontal: Dimens.horizontalPadding),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 32),
+          const SizedBox(height: 32),
           Hero(
             tag: ArticlePage.buildTitletag(article.id),
             child: Text(article.title, style: Theme.of(context).textTheme.headline5),
           ),
-          SizedBox(height: 32),
+          const SizedBox(height: 32),
           ArticleMarkdown(
             body: article.body,
             onTapArticle: (String articleId) => ArticlePage.show(
@@ -121,7 +121,7 @@ class ArticleBody extends StatelessWidget {
               article: searchResult.getArticle(articleId),
             ),
           ),
-          SizedBox(height: 80),
+          const SizedBox(height: 80),
         ],
       ),
     );

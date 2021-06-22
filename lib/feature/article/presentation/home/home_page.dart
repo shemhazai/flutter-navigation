@@ -10,11 +10,13 @@ import 'package:navigation/feature/article/presentation/article/article_page.dar
 import 'package:navigation/feature/article/presentation/home/home_bloc.dart';
 
 class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => inject<HomeBloc>(),
-      child: Scaffold(
+      child: const Scaffold(
         body: SafeArea(
           child: HomeBody(),
         ),
@@ -24,16 +26,18 @@ class HomePage extends StatelessWidget {
 }
 
 class HomeBody extends StatelessWidget {
+  const HomeBody({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
         return Column(children: [
-          SizedBox(height: 32),
+          const SizedBox(height: 32),
           _header(context),
-          SizedBox(height: 24),
+          const SizedBox(height: 24),
           _searchField(context),
-          SizedBox(height: 40),
+          const SizedBox(height: 40),
           Expanded(
             child: state.when(
               empty: () => _empty(context),
@@ -49,7 +53,7 @@ class HomeBody extends StatelessWidget {
 
   Widget _header(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: Dimens.horizontalPadding),
+      padding: const EdgeInsets.symmetric(horizontal: Dimens.horizontalPadding),
       child: Row(children: [
         Expanded(
           child: Text(
@@ -70,7 +74,7 @@ class HomeBody extends StatelessWidget {
   Widget _searchField(BuildContext context) {
     final bloc = context.read<HomeBloc>();
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: Dimens.horizontalPadding),
+      padding: const EdgeInsets.symmetric(horizontal: Dimens.horizontalPadding),
       child: TextField(
         onChanged: bloc.search,
         textInputAction: TextInputAction.search,
@@ -83,8 +87,8 @@ class HomeBody extends StatelessWidget {
             height: 24,
             color: Theme.of(context).colorScheme.primaryVariant,
           ),
-          contentPadding: EdgeInsets.all(12),
-          border: OutlineInputBorder(
+          contentPadding: const EdgeInsets.all(12),
+          border: const OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(8)),
             borderSide: BorderSide.none,
           ),
@@ -98,7 +102,7 @@ class HomeBody extends StatelessWidget {
   }
 
   Widget _loading(BuildContext context) {
-    return Center(child: CircularProgressIndicator());
+    return const Center(child: CircularProgressIndicator());
   }
 
   Widget _noResults(BuildContext context) {
@@ -115,13 +119,13 @@ class HomeBody extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: Dimens.horizontalPadding + 8),
+          padding: const EdgeInsets.symmetric(horizontal: Dimens.horizontalPadding + 8),
           child: Text(
             LocaleKeys.page_home_results.tr(),
             style: Theme.of(context).textTheme.overline,
           ),
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         Expanded(
           child: ListView.builder(
             itemCount: headlines.length,
@@ -159,12 +163,12 @@ class ArticleHeadlineWidget extends StatelessWidget {
     return GestureDetector(
       onTap: onPressed,
       child: Card(
-        margin: EdgeInsets.symmetric(
+        margin: const EdgeInsets.symmetric(
           horizontal: Dimens.horizontalPadding,
           vertical: 8,
         ),
         clipBehavior: Clip.antiAlias,
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(8)),
         ),
         child: SizedBox(
