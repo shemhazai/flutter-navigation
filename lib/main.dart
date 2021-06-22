@@ -7,9 +7,20 @@ import 'package:navigation/di/di.dart';
 import 'package:navigation/feature/article/presentation/home/home_page.dart';
 import 'package:navigation/generated/locale_keys.g.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
   configureInjection(environment: develop);
-  runApp(MyApp());
+  
+  runApp(EasyLocalization(
+    supportedLocales: [
+      Locale('en'),
+      Locale('de'),
+    ],
+    path: 'assets/translations',
+    fallbackLocale: Locale('en'),
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -17,23 +28,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return EasyLocalization(
-      supportedLocales: [
-        Locale('en'),
-        Locale('de'),
-      ],
-      path: 'assets/langs',
-      fallbackLocale: Locale('en'),
-      child: MaterialApp(
-        onGenerateTitle: (BuildContext context) => LocaleKeys.title.tr(),
-        theme: lightTheme,
-        darkTheme: darkTheme,
-        navigatorKey: _navigator.key,
-        initialRoute: Routes.home,
-        routes: {
-          Routes.home: (context) => HomePage(),
-        },
-      ),
+    return MaterialApp(
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
+      onGenerateTitle: (BuildContext context) => LocaleKeys.title.tr(),
+      theme: lightTheme,
+      darkTheme: darkTheme,
+      navigatorKey: _navigator.key,
+      initialRoute: Routes.home,
+      routes: {
+        Routes.home: (context) => HomePage(),
+      },
     );
   }
 }
