@@ -16,7 +16,7 @@ class ArticleRepositoryImpl implements ArticleRepository {
       return Result.success(await _api.getArticles(query));
     } on DioError catch (e) {
       if (e.message == 'invalid_query') return const Result.failure(SearchArticleError.invalidQuery);
-      return const Result.failure(SearchArticleError.noInternet);
+      return const Result.failure(SearchArticleError.noResults);
     }
   }
 }

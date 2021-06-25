@@ -50,7 +50,11 @@ class HomeBloc extends BaseCubit<HomeState> {
         }
       },
       failure: (error) {
-        emit(HomeState.error(error));
+        if (error == SearchArticleError.noResults) {
+          emit(const HomeState.noResults());
+        } else {
+          emit(HomeState.error(error));
+        }
       },
     );
   }

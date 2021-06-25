@@ -7,6 +7,6 @@ abstract class ArticleUseCase {
 }
 
 enum SearchArticleError {
-  noInternet,
+  noResults,
   invalidQuery,
 }
