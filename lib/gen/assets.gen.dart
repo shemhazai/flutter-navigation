@@ -18,10 +18,18 @@ class $AssetsImagesGen {
       const AssetGenImage('assets/images/ic_user_avatar_48.png');
 }
 
+class $AssetsTranslationsGen {
+  const $AssetsTranslationsGen();
+
+  String get de => 'assets/translations/de.json';
+  String get en => 'assets/translations/en.json';
+}
+
 class Assets {
   Assets._();
 
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const $AssetsTranslationsGen translations = $AssetsTranslationsGen();
 }
 
 class AssetGenImage extends AssetImage {

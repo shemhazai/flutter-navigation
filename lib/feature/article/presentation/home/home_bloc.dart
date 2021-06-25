@@ -14,6 +14,7 @@ class HomeState with _$HomeState {
     required SearchResult searchResult,
     required List<HomeArticleHeadline> headlines,
   }) = _Content;
+  const factory HomeState.error(SearchArticleError error) = _Error;
 }
 
 @freezed
@@ -37,17 +38,21 @@ class HomeBloc extends BaseCubit<HomeState> {
     }
 
     emit(const HomeState.loading());
-    try {
-      final SearchResult result = await _useCase.searchArticles(text);
-      final List<HomeArticleHeadline> articles = _mapArticles(result);
-      if (articles.isEmpty) {
-        emit(const HomeState.noResults());
-      } else {
-        emit(HomeState.content(searchResult: result, headlines: articles));
-      }
-    } catch (error) {
-      emit(const HomeState.noResults());
-    }
+
+    final result = await _useCase.searchArticles(text);
+    result.when(
+      success: (data) {
+        final articles = _mapArticles(data);
+        if (articles.isEmpty) {
+          emit(const HomeState.noResults());
+        } else {
+          emit(HomeState.content(searchResult: data, headlines: articles));
+        }
+      },
+      failure: (error) {
+        emit(HomeState.error(error));
+      },
+    );
   }
 
   List<HomeArticleHeadline> _mapArticles(SearchResult result) {

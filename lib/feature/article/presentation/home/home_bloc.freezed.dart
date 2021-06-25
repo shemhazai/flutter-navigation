@@ -36,6 +36,12 @@ class _$HomeStateTearOff {
       headlines: headlines,
     );
   }
+
+  _Error error(SearchArticleError error) {
+    return _Error(
+      error,
+    );
+  }
 }
 
 /// @nodoc
@@ -51,6 +57,7 @@ mixin _$HomeState {
     required TResult Function(
             SearchResult searchResult, List<HomeArticleHeadline> headlines)
         content,
+    required TResult Function(SearchArticleError error) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -61,6 +68,7 @@ mixin _$HomeState {
     TResult Function(
             SearchResult searchResult, List<HomeArticleHeadline> headlines)?
         content,
+    TResult Function(SearchArticleError error)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -70,6 +78,7 @@ mixin _$HomeState {
     required TResult Function(_Empty value) empty,
     required TResult Function(_NoResults value) noResults,
     required TResult Function(_Content value) content,
+    required TResult Function(_Error value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -78,6 +87,7 @@ mixin _$HomeState {
     TResult Function(_Empty value)? empty,
     TResult Function(_NoResults value)? noResults,
     TResult Function(_Content value)? content,
+    TResult Function(_Error value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -141,6 +151,7 @@ class _$_Loading implements _Loading {
     required TResult Function(
             SearchResult searchResult, List<HomeArticleHeadline> headlines)
         content,
+    required TResult Function(SearchArticleError error) error,
   }) {
     return loading();
   }
@@ -154,6 +165,7 @@ class _$_Loading implements _Loading {
     TResult Function(
             SearchResult searchResult, List<HomeArticleHeadline> headlines)?
         content,
+    TResult Function(SearchArticleError error)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -169,6 +181,7 @@ class _$_Loading implements _Loading {
     required TResult Function(_Empty value) empty,
     required TResult Function(_NoResults value) noResults,
     required TResult Function(_Content value) content,
+    required TResult Function(_Error value) error,
   }) {
     return loading(this);
   }
@@ -180,6 +193,7 @@ class _$_Loading implements _Loading {
     TResult Function(_Empty value)? empty,
     TResult Function(_NoResults value)? noResults,
     TResult Function(_Content value)? content,
+    TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -236,6 +250,7 @@ class _$_Empty implements _Empty {
     required TResult Function(
             SearchResult searchResult, List<HomeArticleHeadline> headlines)
         content,
+    required TResult Function(SearchArticleError error) error,
   }) {
     return empty();
   }
@@ -249,6 +264,7 @@ class _$_Empty implements _Empty {
     TResult Function(
             SearchResult searchResult, List<HomeArticleHeadline> headlines)?
         content,
+    TResult Function(SearchArticleError error)? error,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -264,6 +280,7 @@ class _$_Empty implements _Empty {
     required TResult Function(_Empty value) empty,
     required TResult Function(_NoResults value) noResults,
     required TResult Function(_Content value) content,
+    required TResult Function(_Error value) error,
   }) {
     return empty(this);
   }
@@ -275,6 +292,7 @@ class _$_Empty implements _Empty {
     TResult Function(_Empty value)? empty,
     TResult Function(_NoResults value)? noResults,
     TResult Function(_Content value)? content,
+    TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -332,6 +350,7 @@ class _$_NoResults implements _NoResults {
     required TResult Function(
             SearchResult searchResult, List<HomeArticleHeadline> headlines)
         content,
+    required TResult Function(SearchArticleError error) error,
   }) {
     return noResults();
   }
@@ -345,6 +364,7 @@ class _$_NoResults implements _NoResults {
     TResult Function(
             SearchResult searchResult, List<HomeArticleHeadline> headlines)?
         content,
+    TResult Function(SearchArticleError error)? error,
     required TResult orElse(),
   }) {
     if (noResults != null) {
@@ -360,6 +380,7 @@ class _$_NoResults implements _NoResults {
     required TResult Function(_Empty value) empty,
     required TResult Function(_NoResults value) noResults,
     required TResult Function(_Content value) content,
+    required TResult Function(_Error value) error,
   }) {
     return noResults(this);
   }
@@ -371,6 +392,7 @@ class _$_NoResults implements _NoResults {
     TResult Function(_Empty value)? empty,
     TResult Function(_NoResults value)? noResults,
     TResult Function(_Content value)? content,
+    TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
     if (noResults != null) {
@@ -474,6 +496,7 @@ class _$_Content implements _Content {
     required TResult Function(
             SearchResult searchResult, List<HomeArticleHeadline> headlines)
         content,
+    required TResult Function(SearchArticleError error) error,
   }) {
     return content(searchResult, headlines);
   }
@@ -487,6 +510,7 @@ class _$_Content implements _Content {
     TResult Function(
             SearchResult searchResult, List<HomeArticleHeadline> headlines)?
         content,
+    TResult Function(SearchArticleError error)? error,
     required TResult orElse(),
   }) {
     if (content != null) {
@@ -502,6 +526,7 @@ class _$_Content implements _Content {
     required TResult Function(_Empty value) empty,
     required TResult Function(_NoResults value) noResults,
     required TResult Function(_Content value) content,
+    required TResult Function(_Error value) error,
   }) {
     return content(this);
   }
@@ -513,6 +538,7 @@ class _$_Content implements _Content {
     TResult Function(_Empty value)? empty,
     TResult Function(_NoResults value)? noResults,
     TResult Function(_Content value)? content,
+    TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
     if (content != null) {
@@ -532,6 +558,134 @@ abstract class _Content implements HomeState {
   @JsonKey(ignore: true)
   _$ContentCopyWith<_Content> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$ErrorCopyWith<$Res> {
+  factory _$ErrorCopyWith(_Error value, $Res Function(_Error) then) =
+      __$ErrorCopyWithImpl<$Res>;
+  $Res call({SearchArticleError error});
+}
+
+/// @nodoc
+class __$ErrorCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
+    implements _$ErrorCopyWith<$Res> {
+  __$ErrorCopyWithImpl(_Error _value, $Res Function(_Error) _then)
+      : super(_value, (v) => _then(v as _Error));
+
+  @override
+  _Error get _value => super._value as _Error;
+
+  @override
+  $Res call({
+    Object? error = freezed,
+  }) {
+    return _then(_Error(
+      error == freezed
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as SearchArticleError,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Error implements _Error {
+  const _$_Error(this.error);
+
+  @override
+  final SearchArticleError error;
+
+  @override
+  String toString() {
+    return 'HomeState.error(error: $error)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _Error &&
+            (identical(other.error, error) ||
+                const DeepCollectionEquality().equals(other.error, error)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ErrorCopyWith<_Error> get copyWith =>
+      __$ErrorCopyWithImpl<_Error>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loading,
+    required TResult Function() empty,
+    required TResult Function() noResults,
+    required TResult Function(
+            SearchResult searchResult, List<HomeArticleHeadline> headlines)
+        content,
+    required TResult Function(SearchArticleError error) error,
+  }) {
+    return error(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function()? empty,
+    TResult Function()? noResults,
+    TResult Function(
+            SearchResult searchResult, List<HomeArticleHeadline> headlines)?
+        content,
+    TResult Function(SearchArticleError error)? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this.error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Empty value) empty,
+    required TResult Function(_NoResults value) noResults,
+    required TResult Function(_Content value) content,
+    required TResult Function(_Error value) error,
+  }) {
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Empty value)? empty,
+    TResult Function(_NoResults value)? noResults,
+    TResult Function(_Content value)? content,
+    TResult Function(_Error value)? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Error implements HomeState {
+  const factory _Error(SearchArticleError error) = _$_Error;
+
+  SearchArticleError get error => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$ErrorCopyWith<_Error> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc

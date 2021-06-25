@@ -4,6 +4,7 @@ import 'package:navigation/common/app/presentation/theme.dart';
 import 'package:navigation/di/di.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:navigation/feature/article/domain/entity/article.dart';
+import 'package:navigation/feature/article/domain/usecase/article_use_case.dart';
 import 'package:navigation/gen/assets.gen.dart';
 import 'package:navigation/generated/locale_keys.g.dart';
 import 'package:navigation/feature/article/presentation/article/article_page.dart';
@@ -44,6 +45,7 @@ class HomeBody extends StatelessWidget {
               loading: () => _loading(context),
               content: (searchResult, headlines) => _content(context, searchResult, headlines),
               noResults: () => _noResults(context),
+              error: (error) => _error(context, error),
             ),
           ),
         ]);
@@ -109,6 +111,15 @@ class HomeBody extends StatelessWidget {
     return Center(
       child: Text(
         LocaleKeys.page_home_noResults.tr(),
+        style: Theme.of(context).textTheme.bodyText1,
+      ),
+    );
+  }
+
+  Widget _error(BuildContext context, SearchArticleError error) {
+    return Center(
+      child: Text(
+        LocaleKeys.page_home_error.tr(args: [error.toString()]),
         style: Theme.of(context).textTheme.bodyText1,
       ),
     );

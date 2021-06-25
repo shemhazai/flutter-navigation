@@ -4,8 +4,6 @@ analyzer:
   exclude:
     - "lib/di/di.config.dart"
     - "**/*.config.dart"
-    - "lib/i18n/**"
-    - "lib/generated/**"
     - "lib/**/*.g.dart"
     - "lib/**/*.freezed.dart"
 

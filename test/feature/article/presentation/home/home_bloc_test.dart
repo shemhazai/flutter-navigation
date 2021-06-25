@@ -1,6 +1,7 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
+import 'package:navigation/common/app/data/result.dart';
 import 'package:navigation/feature/article/domain/entity/article.dart';
 import 'package:navigation/feature/article/presentation/home/home_bloc.dart';
 import 'package:navigation/feature/article/domain/usecase/article_use_case.dart';
@@ -37,10 +38,10 @@ void main() {
     blocTest(
       'emits loading and content after search',
       build: () {
-        when(useCase.searchArticles('spacecraft')).thenAnswer((_) async => SearchResult(
+        when(useCase.searchArticles('spacecraft')).thenAnswer((_) async => Result.success(SearchResult(
               pages: [headline],
               items: [article],
-            ));
+            )));
 
         return HomeBloc(useCase);
       },
@@ -67,10 +68,10 @@ void main() {
     blocTest(
       'emits no results',
       build: () {
-        when(useCase.searchArticles('spacecraft')).thenAnswer((_) async => const SearchResult(
+        when(useCase.searchArticles('spacecraft')).thenAnswer((_) async => const Result.success(SearchResult(
               pages: [],
               items: [],
-            ));
+            )));
 
         return HomeBloc(useCase);
       },

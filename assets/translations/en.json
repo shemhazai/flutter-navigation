@@ -5,7 +5,8 @@
          "title": "Good morning!",
          "search": "Search...",
          "results": "RESULTS",
-         "noResults": "No results"
+         "noResults": "No results",
+         "error": "Error: {}"
       },
       "article": {
          "homeButton": "Back to home"
