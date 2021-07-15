@@ -26,7 +26,6 @@ class ColorSchemes {
     unselected: Color(0xA86C7355),
     highlight: Color(0x2C3B4834),
     canvas: AppColors.white,
-    shadow: Color.fromRGBO(0, 0, 0, 0.12),
     navigationBar: Color(0xFF3B4834),
 
     // texts
@@ -57,7 +56,6 @@ class ColorSchemes {
     unselected: Color.fromRGBO(122, 195, 142, 0.65),
     highlight: Color.fromRGBO(122, 195, 142, 0.35),
     canvas: AppColors.gray2,
-    shadow: Color.fromRGBO(0, 0, 0, 0.12),
     navigationBar: Color.fromARGB(255, 37, 37, 38),
 
     // texts
@@ -96,7 +94,6 @@ class AppColorScheme with _$AppColorScheme {
     required Color unselected,
     required Color highlight,
     required Color canvas,
-    required Color shadow,
     required Color navigationBar,
 
     /// texts

@@ -5,7 +5,7 @@ import 'package:navigation/app/router/router.gr.dart';
 import 'package:navigation/app/widgets/markdown_widget.dart';
 import 'package:navigation/common/extensions/images.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:navigation/gen/assets.gen.dart';
+import 'package:navigation/generated/assets.gen.dart';
 import 'package:navigation/generated/locale_keys.g.dart';
 import 'package:navigation/model/article/entity/article.dart';
 
@@ -57,7 +57,7 @@ class ArticlePage extends StatelessWidget {
       floatingActionButton: FloatingActionButton.extended(
         backgroundColor: accentColor,
         label: Text(LocaleKeys.page_article_homeButton.tr()),
-        onPressed: () => context.router.popTop(),
+        onPressed: () => context.router.popUntilRoot(),
       ),
     );
   }
@@ -85,18 +85,22 @@ class ArticleBody extends StatelessWidget {
           _buildContent(context, searchResult, article),
         ]),
       ),
-      Positioned(left: 12, top: 12, child: _backButton(context)),
+      Positioned(
+        left: 12,
+        top: 12,
+        child: _buildBackButton(context),
+      ),
     ]);
   }
 
-  Widget _backButton(BuildContext context) {
+  Widget _buildBackButton(BuildContext context) {
     return Material(
-      color: Colors.transparent,
+      type: MaterialType.transparency,
       child: InkWell(
         onTap: () => Navigator.of(context).pop(),
         borderRadius: const BorderRadius.all(Radius.circular(24)),
         child: Padding(
-          padding: const EdgeInsets.all(12),
+          padding: Insets.smaller,
           child: Image.asset(
             Assets.images.icChevronLeft24.path,
             width: 24,
@@ -114,12 +118,12 @@ class ArticleBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 32),
+          Spacing.big,
           Hero(
             tag: ArticlePage.buildTitletag(article.id),
             child: Text(article.title, style: Theme.of(context).textTheme.headline5),
           ),
-          const SizedBox(height: 32),
+          Spacing.big,
           ArticleMarkdown(
             body: article.body,
             onTapArticle: (String articleId) => ArticlePage.show(

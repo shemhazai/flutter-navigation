@@ -15,15 +15,6 @@ class Dimens {
 
   // text fields
   static const double textFieldCorners = 10.0;
-
-  // cards
-  static const double cardCorners = 8.0;
-
-  // dialogs
-  static const double dialogCorners = 16.0;
-
-  /// A centered card that is the only element on the page.
-  static const double primaryCardWidth = 460;
 }
 
 /// Holds commonly used paddings.

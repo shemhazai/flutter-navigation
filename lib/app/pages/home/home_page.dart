@@ -6,7 +6,7 @@ import 'package:navigation/app/pages/article/article_page.dart';
 import 'package:navigation/app/pages/home/home_bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:navigation/app/pages/home/home_state.dart';
-import 'package:navigation/gen/assets.gen.dart';
+import 'package:navigation/generated/assets.gen.dart';
 import 'package:navigation/generated/locale_keys.g.dart';
 import 'package:navigation/model/article/article_use_case.dart';
 import 'package:navigation/model/article/entity/article.dart';
@@ -35,18 +35,17 @@ class HomeBody extends StatelessWidget {
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
         return Column(children: [
-          const SizedBox(height: 32),
-          _header(context),
-          const SizedBox(height: 24),
-          _searchField(context),
-          const SizedBox(height: 40),
+          Spacing.big,
+          _buildHeader(context),
+          Spacing.normal,
+          _buildSearchField(context),
           Expanded(
             child: state.when(
-              empty: () => _empty(context),
-              loading: () => _loading(context),
-              content: (searchResult, headlines) => _content(context, searchResult, headlines),
-              noResults: () => _noResults(context),
-              error: (error) => _error(context, error),
+              empty: () => _buildEmpty(context),
+              loading: () => _buildLoading(context),
+              noResults: () => _buildNoResults(context),
+              error: (error) => _buildError(context, error),
+              content: (searchResult, headlines) => _buildContent(context, searchResult, headlines),
             ),
           ),
         ]);
@@ -54,7 +53,7 @@ class HomeBody extends StatelessWidget {
     );
   }
 
-  Widget _header(BuildContext context) {
+  Widget _buildHeader(BuildContext context) {
     return Padding(
       padding: Insets.small,
       child: Row(children: [
@@ -74,7 +73,7 @@ class HomeBody extends StatelessWidget {
     );
   }
 
-  Widget _searchField(BuildContext context) {
+  Widget _buildSearchField(BuildContext context) {
     final bloc = context.read<HomeBloc>();
     return Padding(
       padding: Insets.normal,
@@ -90,7 +89,7 @@ class HomeBody extends StatelessWidget {
             height: 24,
             color: Theme.of(context).colorScheme.primaryVariant,
           ),
-          contentPadding: const EdgeInsets.all(12),
+          contentPadding: Insets.smaller,
           border: const OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(8)),
             borderSide: BorderSide.none,
@@ -100,15 +99,15 @@ class HomeBody extends StatelessWidget {
     );
   }
 
-  Widget _empty(BuildContext context) {
-    return Container();
+  Widget _buildEmpty(BuildContext context) {
+    return const SizedBox.shrink();
   }
 
-  Widget _loading(BuildContext context) {
+  Widget _buildLoading(BuildContext context) {
     return const Center(child: CircularProgressIndicator());
   }
 
-  Widget _noResults(BuildContext context) {
+  Widget _buildNoResults(BuildContext context) {
     return Center(
       child: Text(
         LocaleKeys.page_home_noResults.tr(),
@@ -117,7 +116,7 @@ class HomeBody extends StatelessWidget {
     );
   }
 
-  Widget _error(BuildContext context, SearchArticleError error) {
+  Widget _buildError(BuildContext context, SearchArticleError error) {
     return Center(
       child: Text(
         LocaleKeys.page_home_error.tr(args: [error.toString()]),
@@ -126,23 +125,24 @@ class HomeBody extends StatelessWidget {
     );
   }
 
-  Widget _content(BuildContext context, SearchResult searchResult, List<HomeArticleHeadline> headlines) {
+  Widget _buildContent(BuildContext context, SearchResult searchResult, List<HomeArticleHeadline> headlines) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: Insets.normal,
+          padding: Insets.normal.copyWith(bottom: 0),
           child: Text(
             LocaleKeys.page_home_results.tr(),
             style: Theme.of(context).textTheme.overline,
           ),
         ),
-        const SizedBox(height: 8),
+        Spacing.tiny,
         Expanded(
           child: ListView.builder(
+            padding: Insets.small,
             itemCount: headlines.length,
-            itemBuilder: (BuildContext context, int pos) {
-              final HomeArticleHeadline headline = headlines[pos];
+            itemBuilder: (BuildContext context, int index) {
+              final HomeArticleHeadline headline = headlines[index];
               return ArticleHeadlineWidget(
                 headline: headline,
                 onPressed: () {

@@ -28,7 +28,6 @@ ThemeData _buildTheme(AppColorScheme colors) {
     dividerTheme: _dividerTheme(colors),
     iconTheme: _iconTheme(colors),
     textSelectionTheme: _textSelectionTheme(colors),
-    scrollbarTheme: _scrollBarTheme(),
     primaryColor: colors.primary,
     accentColor: colors.secondary,
     unselectedWidgetColor: colors.unselected,
@@ -137,13 +136,5 @@ IconThemeData _iconTheme(AppColorScheme colors) {
 TextSelectionThemeData _textSelectionTheme(AppColorScheme colors) {
   return TextSelectionThemeData(
     cursorColor: colors.cursor,
-  );
-}
-
-ScrollbarThemeData _scrollBarTheme() {
-  return ScrollbarThemeData(
-    isAlwaysShown: false,
-    trackColor: MaterialStateProperty.all(Colors.transparent),
-    thumbColor: MaterialStateProperty.all(Colors.transparent),
   );
 }

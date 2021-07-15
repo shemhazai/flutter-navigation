@@ -5,7 +5,6 @@ import 'package:navigation/app/pages/home/home_page.dart';
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
   routes: [
-    // account
     AutoRoute(path: '/', page: HomePage, initial: true),
     AutoRoute(path: '/article', page: ArticlePage),
   ],
