@@ -1,10 +1,11 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:navigation/common/app/data/result.dart';
-import 'package:navigation/feature/article/domain/entity/article.dart';
-import 'package:navigation/feature/article/presentation/home/home_bloc.dart';
-import 'package:navigation/feature/article/domain/usecase/article_use_case.dart';
+import 'package:navigation/app/pages/home/home_bloc.dart';
+import 'package:navigation/app/pages/home/home_state.dart';
+import 'package:navigation/common/data/result.dart';
+import 'package:navigation/model/article/article_use_case.dart';
+import 'package:navigation/model/article/entity/article.dart';
 
 class MockArticleUseCase extends Mock implements ArticleUseCase {}
 
