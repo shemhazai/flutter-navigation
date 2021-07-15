@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-      onGenerateTitle: (BuildContext context) => LocaleKeys.title.tr(),
+      onGenerateTitle: (BuildContext context) => LocaleKeys.common_appName.tr(),
       theme: lightTheme,
       darkTheme: darkTheme,
       navigatorKey: _navigator.key,

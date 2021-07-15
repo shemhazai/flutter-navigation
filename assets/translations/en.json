@@ -1,5 +1,7 @@
 {
-   "title": "Navigation",
+   "common": {
+      "appName": "Navigation"
+   },
    "page": {
       "home": {
          "title": "Good morning!",
