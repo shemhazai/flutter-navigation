@@ -29,7 +29,6 @@ ThemeData _buildTheme(AppColorScheme colors) {
     iconTheme: _iconTheme(colors),
     textSelectionTheme: _textSelectionTheme(colors),
     primaryColor: colors.primary,
-    accentColor: colors.secondary,
     unselectedWidgetColor: colors.unselected,
     disabledColor: colors.disabled,
     errorColor: colors.error,
@@ -48,9 +47,8 @@ ThemeData _buildTheme(AppColorScheme colors) {
 AppBarTheme _appBarTheme(ThemeData base, AppColorScheme colors) {
   return AppBarTheme(
     centerTitle: false,
-    brightness: colors.brightness,
     color: colors.surface,
-    textTheme: base.textTheme,
+    toolbarTextStyle: base.textTheme.bodyText1,
     iconTheme: base.iconTheme.copyWith(color: colors.secondary),
   );
 }
