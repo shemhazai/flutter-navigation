@@ -8,6 +8,7 @@ import 'package:navigation/model/article/repository/article_repository.dart';
 import 'package:navigation/model/article/repository/article_repository_impl.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
+/// A module that provides apis/repositories/data sources for DI.
 abstract class RepositoriesModule {
   static void register(GetIt locator) {
     locator.registerLazySingleton(() => _buildDio(inject()));

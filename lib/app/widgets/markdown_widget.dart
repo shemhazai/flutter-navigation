@@ -3,7 +3,7 @@ import 'package:flutter_markdown/flutter_markdown.dart';
 
 typedef OnTapArticle = void Function(String articleId);
 
-/// Renders the markdown.
+/// Renders the markdown text.
 class ArticleMarkdown extends StatelessWidget {
   final String body;
   final OnTapArticle? onTapArticle;

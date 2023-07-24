@@ -9,6 +9,7 @@ import 'package:navigation/common/extensions/images.dart';
 import 'package:navigation/generated/locale_keys.g.dart';
 import 'package:navigation/model/article/entity/article.dart';
 
+/// A page that displays article details.
 @RoutePage()
 class ArticlePage extends StatelessWidget {
   final SearchResult searchResult;
@@ -44,7 +45,7 @@ class ArticlePage extends StatelessWidget {
     return 'image_article_$articleId';
   }
 
-  static String buildTitletag(String articleId) {
+  static String buildTitleTag(String articleId) {
     return 'title_article_$articleId';
   }
 
@@ -85,18 +86,63 @@ class ArticleBody extends StatelessWidget {
             tag: ArticlePage.buildImageTag(article.id),
             child: Image.network(article.imageUrl, fit: BoxFit.cover),
           ),
-          _buildContent(context, searchResult, article),
+          _Content(
+            searchResult: searchResult,
+            article: article,
+          ),
         ]),
       ),
-      Positioned(
+      const Positioned(
         left: 12,
         top: 12,
-        child: _buildBackButton(context),
+        child: _BackButton(),
       ),
     ]);
   }
+}
 
-  Widget _buildBackButton(BuildContext context) {
+class _Content extends StatelessWidget {
+  final SearchResult searchResult;
+  final Article article;
+
+  const _Content({
+    required this.searchResult,
+    required this.article,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: Insets.normal,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Spacing.big,
+          Hero(
+            tag: ArticlePage.buildTitleTag(article.id),
+            child: Text(article.title, style: Theme.of(context).textTheme.headlineSmall),
+          ),
+          Spacing.big,
+          ArticleMarkdown(
+            body: article.body,
+            onTapArticle: (String articleId) => ArticlePage.show(
+              context: context,
+              searchResult: searchResult,
+              article: searchResult.getArticle(articleId),
+            ),
+          ),
+          const SizedBox(height: 80),
+        ],
+      ),
+    );
+  }
+}
+
+class _BackButton extends StatelessWidget {
+  const _BackButton();
+
+  @override
+  Widget build(BuildContext context) {
     return Material(
       type: MaterialType.transparency,
       child: InkWell(
@@ -111,32 +157,6 @@ class ArticleBody extends StatelessWidget {
             color: Theme.of(context).colorScheme.primary,
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _buildContent(BuildContext context, SearchResult searchResult, Article article) {
-    return Padding(
-      padding: Insets.normal,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Spacing.big,
-          Hero(
-            tag: ArticlePage.buildTitletag(article.id),
-            child: Text(article.title, style: Theme.of(context).textTheme.headlineSmall),
-          ),
-          Spacing.big,
-          ArticleMarkdown(
-            body: article.body,
-            onTapArticle: (String articleId) => ArticlePage.show(
-              context: context,
-              searchResult: searchResult,
-              article: searchResult.getArticle(articleId),
-            ),
-          ),
-          const SizedBox(height: 80),
-        ],
       ),
     );
   }

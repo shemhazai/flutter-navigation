@@ -11,6 +11,7 @@ import 'package:navigation/app/pages/home/home_state.dart';
 import 'package:navigation/generated/locale_keys.g.dart';
 import 'package:navigation/model/article/entity/article.dart';
 
+/// An initial page of the application, allows to search for articles.
 @RoutePage()
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -33,28 +34,35 @@ class HomeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeBloc, HomeState>(
-      builder: (context, state) {
-        return Column(children: [
-          Spacing.big,
-          _buildHeader(context),
-          Spacing.normal,
-          _buildSearchField(context),
-          Expanded(
-            child: state.when(
-              empty: () => _buildEmpty(context),
-              loading: () => _buildLoading(context),
-              noResults: () => _buildNoResults(context),
-              error: (error) => _buildError(context, error),
-              content: (searchResult, headlines) => _buildContent(context, searchResult, headlines),
-            ),
-          ),
-        ]);
-      },
+    return Column(
+      children: [
+        Spacing.big,
+        const _Header(),
+        Spacing.normal,
+        const _SearchField(),
+        BlocBuilder<HomeBloc, HomeState>(
+          builder: (context, state) {
+            return Expanded(
+              child: state.when(
+                empty: () => const _Empty(),
+                loading: () => const _Loading(),
+                noResults: () => const _NoResults(),
+                error: (error) => _Error(error: error),
+                content: (searchResult, headlines) => _Content(searchResult: searchResult, headlines: headlines),
+              ),
+            );
+          },
+        ),
+      ],
     );
   }
+}
 
-  Widget _buildHeader(BuildContext context) {
+class _Header extends StatelessWidget {
+  const _Header();
+
+  @override
+  Widget build(BuildContext context) {
     return Padding(
       padding: Insets.small,
       child: Row(children: [
@@ -73,8 +81,13 @@ class HomeBody extends StatelessWidget {
       ]),
     );
   }
+}
 
-  Widget _buildSearchField(BuildContext context) {
+class _SearchField extends StatelessWidget {
+  const _SearchField();
+
+  @override
+  Widget build(BuildContext context) {
     final bloc = context.read<HomeBloc>();
     return Padding(
       padding: Insets.normal,
@@ -99,16 +112,31 @@ class HomeBody extends StatelessWidget {
       ),
     );
   }
+}
 
-  Widget _buildEmpty(BuildContext context) {
+class _Empty extends StatelessWidget {
+  const _Empty();
+
+  @override
+  Widget build(BuildContext context) {
     return const SizedBox.shrink();
   }
+}
 
-  Widget _buildLoading(BuildContext context) {
+class _Loading extends StatelessWidget {
+  const _Loading();
+
+  @override
+  Widget build(BuildContext context) {
     return const Center(child: CircularProgressIndicator());
   }
+}
 
-  Widget _buildNoResults(BuildContext context) {
+class _NoResults extends StatelessWidget {
+  const _NoResults();
+
+  @override
+  Widget build(BuildContext context) {
     return Center(
       child: Text(
         LocaleKeys.page_home_noResults.tr(),
@@ -116,8 +144,15 @@ class HomeBody extends StatelessWidget {
       ),
     );
   }
+}
 
-  Widget _buildError(BuildContext context, Object error) {
+class _Error extends StatelessWidget {
+  final Object error;
+
+  const _Error({required this.error});
+
+  @override
+  Widget build(BuildContext context) {
     return Center(
       child: Text(
         LocaleKeys.page_home_error.tr(args: [error.toString()]),
@@ -125,8 +160,19 @@ class HomeBody extends StatelessWidget {
       ),
     );
   }
+}
 
-  Widget _buildContent(BuildContext context, SearchResult searchResult, List<HomeArticleHeadline> headlines) {
+class _Content extends StatelessWidget {
+  final SearchResult searchResult;
+  final List<HomeArticleHeadline> headlines;
+
+  const _Content({
+    required this.searchResult,
+    required this.headlines,
+  });
+
+  @override
+  Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -144,12 +190,16 @@ class HomeBody extends StatelessWidget {
             itemCount: headlines.length,
             itemBuilder: (BuildContext context, int index) {
               final HomeArticleHeadline headline = headlines[index];
-              return ArticleHeadlineWidget(
+              return _ArticleHeadlineWidget(
                 headline: headline,
                 onPressed: () {
                   FocusScope.of(context).unfocus();
 
-                  ArticlePage.show(context: context, searchResult: searchResult, article: headline.article);
+                  ArticlePage.show(
+                    context: context,
+                    searchResult: searchResult,
+                    article: headline.article,
+                  );
                 },
               );
             },
@@ -160,12 +210,11 @@ class HomeBody extends StatelessWidget {
   }
 }
 
-class ArticleHeadlineWidget extends StatelessWidget {
+class _ArticleHeadlineWidget extends StatelessWidget {
   final HomeArticleHeadline headline;
   final VoidCallback? onPressed;
 
-  const ArticleHeadlineWidget({
-    super.key,
+  const _ArticleHeadlineWidget({
     required this.headline,
     required this.onPressed,
   });
@@ -198,7 +247,7 @@ class ArticleHeadlineWidget extends StatelessWidget {
               left: 20,
               right: 20,
               child: Hero(
-                tag: ArticlePage.buildTitletag(headline.article.id),
+                tag: ArticlePage.buildTitleTag(headline.article.id),
                 child: Text(
                   headline.title,
                   style: Theme.of(context).textTheme.titleLarge!.copyWith(color: foregroundColor),

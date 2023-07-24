@@ -4,9 +4,9 @@ import 'package:navigation/app/di/modules/repositories_module.dart';
 import 'package:navigation/app/di/modules/use_cases_module.dart';
 import 'package:navigation/common/data/app_environment.dart';
 
-
 final GetIt getIt = GetIt.instance;
 
+/// Configures the dependency injection.
 void configureDependencies(AppEnvironment environment) {
   getIt.registerSingleton(environment);
   RepositoriesModule.register(getIt);

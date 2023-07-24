@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:navigation/app/common/theming/colors.dart';
 import 'package:navigation/app/common/theming/dimens.dart';
 
+/// Contains common buttons styles for [ElevatedButton].
 class ElevatedButtonStyles {
   static ButtonStyle positive(BuildContext context) => positiveOf(AppColorScheme.of(context));
   static ButtonStyle positiveOf(AppColorScheme colors) => base(colors.secondary);
@@ -24,6 +25,7 @@ class ElevatedButtonStyles {
   }
 }
 
+/// Contains common buttons styles for [OutlinedButton].
 class OutlinedButtonStyles {
   static ButtonStyle positive(BuildContext context) => positiveOf(AppColorScheme.of(context));
   static ButtonStyle positiveOf(AppColorScheme colors) => base(colors.primary);
@@ -51,6 +53,7 @@ class OutlinedButtonStyles {
   }
 }
 
+/// Contains common buttons styles for [TextButton].
 class TextButtonStyles {
   static ButtonStyle positive(BuildContext context) => positiveOf(
         Theme.of(context).textTheme,
