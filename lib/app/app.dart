@@ -1,19 +1,19 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:navigation/app/common/theming/themes.dart';
-import 'package:navigation/app/router/router.gr.dart';
+import 'package:navigation/app/router/router.dart';
 import 'package:navigation/generated/locale_keys.g.dart';
-import 'package:easy_localization/easy_localization.dart';
 
-final _router = AppRouter();
+final AppRouter rootRouter = AppRouter();
 
 class NavigationApp extends StatelessWidget {
-  const NavigationApp({Key? key}) : super(key: key);
+  const NavigationApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      routerDelegate: _router.delegate(),
-      routeInformationParser: _router.defaultRouteParser(),
+      routerDelegate: rootRouter.delegate(),
+      routeInformationParser: rootRouter.defaultRouteParser(),
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,

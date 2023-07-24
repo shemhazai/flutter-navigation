@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:navigation/app/common/theming/colors.dart';
-
-import 'dimens.dart';
+import 'package:navigation/app/common/theming/dimens.dart';
 
 class ElevatedButtonStyles {
   static ButtonStyle positive(BuildContext context) => positiveOf(AppColorScheme.of(context));
@@ -81,7 +80,7 @@ class TextButtonStyles {
     required Color unselectedColor,
   }) {
     return ButtonStyle(
-      textStyle: MaterialStateProperty.all(textTheme.button!.copyWith(fontSize: 17)),
+      textStyle: MaterialStateProperty.all(textTheme.labelLarge!.copyWith(fontSize: 17)),
       minimumSize: MaterialStateProperty.all(Size.zero),
       padding: MaterialStateProperty.all(EdgeInsets.zero),
       overlayColor: MaterialStateProperty.all(Colors.transparent),

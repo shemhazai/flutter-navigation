@@ -12,8 +12,8 @@ class ConsoleLoggerAppender implements LoggerAppender {
   }
 
   @override
-  void appendError(dynamic error, [StackTrace? stackTrace]) {
-    print('${DateTime.now()}/ ${error?.runtimeType}: $error');
+  void appendError(Object error, [StackTrace? stackTrace]) {
+    print('${DateTime.now()}/ ${error.runtimeType}: $error');
     if (stackTrace != null) {
       print('${DateTime.now()}/ $stackTrace');
     }

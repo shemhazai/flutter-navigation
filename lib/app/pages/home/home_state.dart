@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:navigation/model/article/article_use_case.dart';
 import 'package:navigation/model/article/entity/article.dart';
 
 part 'home_state.freezed.dart';
@@ -13,7 +12,7 @@ class HomeState with _$HomeState {
     required SearchResult searchResult,
     required List<HomeArticleHeadline> headlines,
   }) = _Content;
-  const factory HomeState.error(SearchArticleError error) = _Error;
+  const factory HomeState.error(Object error) = _Error;
 }
 
 @freezed

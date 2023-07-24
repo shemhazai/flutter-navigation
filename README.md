@@ -4,14 +4,14 @@ A simple flutter application which demonstrates how to perform navigation in flu
 
 # 1. Useful commands list
 
-Generate code (injectable, get_it, flutter_gen, auto_route, etc.):
+Generate code (get_it, auto_route, etc.):
 ```
-flutter pub run build_runner build --delete-conflicting-outputs
+dart run build_runner build --delete-conflicting-outputs
 ```
 
 Generate mappings for translations (easy_localization):
 ```
-flutter pub run easy_localization:generate -f keys -o locale_keys.g.dart -S assets/translations
+dart run easy_localization:generate -f keys -o locale_keys.g.dart -S assets/translations
 ```
 
 # 2. Localization & strings
@@ -68,25 +68,22 @@ class StatusFormatter {
 
 # 3. Assets management
 - All assets (fonts, translations, images, etc.) shall be placed under assets folder.
-- [flutter_gen](https://pub.dev/packages/flutter_gen) is used to generate mappings to these files.
+- AppAssets class will hold references to all paths for given assets.
 
 ### Example referencing an image asset:
 ```
-Widget buildImage() {
-   return Image.asset(
-      Assets.images.ic_arrow_24.path,
-      width: 24,
-      height: 24,
-   );
-}
+return Image.asset(
+   AppImages.icArrow24,
+   width: 24,
+   height: 24,
+);
 ```
 
 # 4. Dependency Injection
-- [injectable](https://pub.dev/packages/injectable) is used to generate code for dependency injection. 
+- [get_it](https://pub.dev/packages/get_it) is used to configure the dependency injection.
 - If you need to access a certain object prefer to inject it through the constructor and save it as a final field in your class.
 - blocs/cubits are also provided from the DI but access them always through `BlocProvider.of<MyBloc>(context);`
 - Refer to app/di/modules for examples how to add a new dependency.
-- After modifying the dependencies run a command to generate code (available at the top of readme file).
 
 # 5. API
 - APIs are created with the use of [retrofit](https://pub.dev/packages/retrofit) plugin that uses code generation to generate all required api helpers.
@@ -101,7 +98,7 @@ Widget buildImage() {
 - E.g. UI components such as buttons/labels/etc. must not use cubits, instead they shall offer callbacks to communicate with a parent widget (typically a page) and the page should call the cubit.
 
 # 7. Navigation
-- [auto_route](https://pub.dev/packages/auto_route) is used to handle navigation in the app. Do not use the flutter navigator API directly as it will likely change in the future (navigator 2.0).
+- [auto_route](https://pub.dev/packages/auto_route) is used to handle navigation in the app.
 
 # 8. Theming
 - app/common/theming contains all files related to the theming (themes, colors, dimensions). 

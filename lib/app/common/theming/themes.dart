@@ -31,10 +31,8 @@ ThemeData _buildTheme(AppColorScheme colors) {
     primaryColor: colors.primary,
     unselectedWidgetColor: colors.unselected,
     disabledColor: colors.disabled,
-    errorColor: colors.error,
     canvasColor: colors.canvas,
     highlightColor: colors.highlight,
-    backgroundColor: colors.background,
     scaffoldBackgroundColor: colors.background,
     dialogBackgroundColor: colors.surface,
     cardColor: colors.surface,
@@ -48,7 +46,7 @@ AppBarTheme _appBarTheme(ThemeData base, AppColorScheme colors) {
   return AppBarTheme(
     centerTitle: false,
     color: colors.surface,
-    toolbarTextStyle: base.textTheme.bodyText1,
+    toolbarTextStyle: base.textTheme.bodyLarge,
     iconTheme: base.iconTheme.copyWith(color: colors.secondary),
   );
 }
@@ -92,8 +90,8 @@ InputDecorationTheme _inputDecorationTheme(TextTheme textTheme, AppColorScheme c
     fillColor: colors.background,
     filled: true,
     isDense: true,
-    hintStyle: textTheme.bodyText1!.copyWith(color: colors.primaryVariant.withOpacity(0.8)),
-    errorStyle: textTheme.caption!.copyWith(color: colors.error),
+    hintStyle: textTheme.bodyLarge!.copyWith(color: colors.primaryContainer.withOpacity(0.8)),
+    errorStyle: textTheme.bodySmall!.copyWith(color: colors.error),
     contentPadding: const EdgeInsets.symmetric(vertical: 13, horizontal: 14),
     border: border,
     enabledBorder: border,

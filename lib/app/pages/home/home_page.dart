@@ -1,18 +1,19 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:navigation/app/assets/app_images.dart';
 import 'package:navigation/app/common/theming/dimens.dart';
 import 'package:navigation/app/di/di.dart';
 import 'package:navigation/app/pages/article/article_page.dart';
 import 'package:navigation/app/pages/home/home_bloc.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:navigation/app/pages/home/home_state.dart';
-import 'package:navigation/generated/assets.gen.dart';
 import 'package:navigation/generated/locale_keys.g.dart';
-import 'package:navigation/model/article/article_use_case.dart';
 import 'package:navigation/model/article/entity/article.dart';
 
+@RoutePage()
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,7 @@ class HomePage extends StatelessWidget {
 }
 
 class HomeBody extends StatelessWidget {
-  const HomeBody({Key? key}) : super(key: key);
+  const HomeBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -60,14 +61,14 @@ class HomeBody extends StatelessWidget {
         Expanded(
           child: Text(
             LocaleKeys.page_home_title.tr(),
-            style: Theme.of(context).textTheme.headline5,
+            style: Theme.of(context).textTheme.headlineSmall,
           ),
         ),
         Image.asset(
-          Assets.images.icUserAvatar48.path,
+          AppImages.icUserAvatar48,
           width: 48,
           height: 48,
-          color: Theme.of(context).colorScheme.primaryVariant,
+          color: Theme.of(context).colorScheme.primaryContainer,
         ),
       ]),
     );
@@ -84,10 +85,10 @@ class HomeBody extends StatelessWidget {
           filled: true,
           hintText: LocaleKeys.page_home_search.tr(),
           prefixIcon: Image.asset(
-            Assets.images.icSearch24.path,
+            AppImages.icSearch24,
             width: 24,
             height: 24,
-            color: Theme.of(context).colorScheme.primaryVariant,
+            color: Theme.of(context).colorScheme.primaryContainer,
           ),
           contentPadding: Insets.smaller,
           border: const OutlineInputBorder(
@@ -111,16 +112,16 @@ class HomeBody extends StatelessWidget {
     return Center(
       child: Text(
         LocaleKeys.page_home_noResults.tr(),
-        style: Theme.of(context).textTheme.bodyText1,
+        style: Theme.of(context).textTheme.bodyLarge,
       ),
     );
   }
 
-  Widget _buildError(BuildContext context, SearchArticleError error) {
+  Widget _buildError(BuildContext context, Object error) {
     return Center(
       child: Text(
         LocaleKeys.page_home_error.tr(args: [error.toString()]),
-        style: Theme.of(context).textTheme.bodyText1,
+        style: Theme.of(context).textTheme.bodyLarge,
       ),
     );
   }
@@ -133,7 +134,7 @@ class HomeBody extends StatelessWidget {
           padding: Insets.normal.copyWith(bottom: 0),
           child: Text(
             LocaleKeys.page_home_results.tr(),
-            style: Theme.of(context).textTheme.overline,
+            style: Theme.of(context).textTheme.labelSmall,
           ),
         ),
         Spacing.tiny,
@@ -164,14 +165,14 @@ class ArticleHeadlineWidget extends StatelessWidget {
   final VoidCallback? onPressed;
 
   const ArticleHeadlineWidget({
-    Key? key,
+    super.key,
     required this.headline,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
-    final Color foregroundColor = Colors.white;
+    const Color foregroundColor = Colors.white;
     return GestureDetector(
       onTap: onPressed,
       child: Card(
@@ -200,7 +201,7 @@ class ArticleHeadlineWidget extends StatelessWidget {
                 tag: ArticlePage.buildTitletag(headline.article.id),
                 child: Text(
                   headline.title,
-                  style: Theme.of(context).textTheme.headline6!.copyWith(color: foregroundColor),
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(color: foregroundColor),
                 ),
               ),
             ),
@@ -208,7 +209,7 @@ class ArticleHeadlineWidget extends StatelessWidget {
               bottom: 12,
               right: 12,
               child: Image.asset(
-                Assets.images.icChevronRight24.path,
+                AppImages.icChevronRight24,
                 width: 24,
                 height: 24,
                 color: foregroundColor,

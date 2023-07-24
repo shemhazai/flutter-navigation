@@ -16,7 +16,7 @@ void main() {
   runNavigationApp(AppEnvironment.development);
 }
 
-void runNavigationApp(AppEnvironment environment) async {
+Future<void> runNavigationApp(AppEnvironment environment) async {
   await runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
     await _configureLogger(environment);

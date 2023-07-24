@@ -1,25 +1,26 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:navigation/app/assets/app_images.dart';
 import 'package:navigation/app/common/theming/dimens.dart';
 import 'package:navigation/app/router/router.gr.dart';
 import 'package:navigation/app/widgets/markdown_widget.dart';
 import 'package:navigation/common/extensions/images.dart';
-import 'package:easy_localization/easy_localization.dart';
-import 'package:navigation/generated/assets.gen.dart';
 import 'package:navigation/generated/locale_keys.g.dart';
 import 'package:navigation/model/article/entity/article.dart';
 
+@RoutePage()
 class ArticlePage extends StatelessWidget {
   final SearchResult searchResult;
   final Article article;
   final Color? accentColor;
 
   const ArticlePage({
-    Key? key,
+    super.key,
     required this.searchResult,
     required this.article,
     required this.accentColor,
-  }) : super(key: key);
+  });
 
   /// Navigates to the [ArticlePage]. The idea is to have a helper
   /// method which preresolves the accentColor to avoid cpu-intensive
@@ -30,11 +31,13 @@ class ArticlePage extends StatelessWidget {
     required Article article,
   }) async {
     final Color? color = await ImageColorRecognizer.getDominantColor(article.imageUrl);
-    context.router.push(ArticleRoute(
-      searchResult: searchResult,
-      article: article,
-      accentColor: color,
-    ));
+    if (context.mounted) {
+      await context.router.push(ArticleRoute(
+        searchResult: searchResult,
+        article: article,
+        accentColor: color,
+      ));
+    }
   }
 
   static String buildImageTag(String articleId) {
@@ -68,10 +71,10 @@ class ArticleBody extends StatelessWidget {
   final Article article;
 
   const ArticleBody({
-    Key? key,
+    super.key,
     required this.searchResult,
     required this.article,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -102,7 +105,7 @@ class ArticleBody extends StatelessWidget {
         child: Padding(
           padding: Insets.smaller,
           child: Image.asset(
-            Assets.images.icChevronLeft24.path,
+            AppImages.icChevronLeft24,
             width: 24,
             height: 24,
             color: Theme.of(context).colorScheme.primary,
@@ -121,7 +124,7 @@ class ArticleBody extends StatelessWidget {
           Spacing.big,
           Hero(
             tag: ArticlePage.buildTitletag(article.id),
-            child: Text(article.title, style: Theme.of(context).textTheme.headline5),
+            child: Text(article.title, style: Theme.of(context).textTheme.headlineSmall),
           ),
           Spacing.big,
           ArticleMarkdown(

@@ -9,10 +9,10 @@ class ArticleMarkdown extends StatelessWidget {
   final OnTapArticle? onTapArticle;
 
   const ArticleMarkdown({
-    Key? key,
+    super.key,
     required this.body,
     this.onTapArticle,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class ArticleMarkdown extends StatelessWidget {
         }
       },
       styleSheet: MarkdownStyleSheet(
-        p: Theme.of(context).textTheme.bodyText1,
+        p: Theme.of(context).textTheme.bodyLarge,
       ),
     );
   }

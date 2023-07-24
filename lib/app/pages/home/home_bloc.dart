@@ -2,40 +2,34 @@ import 'package:navigation/app/common/bloc/base_cubit.dart';
 import 'package:navigation/app/pages/home/home_state.dart';
 import 'package:navigation/model/article/article_use_case.dart';
 import 'package:navigation/model/article/entity/article.dart';
+import 'package:navigation/model/article/exception/article_exceptions.dart';
 
 class HomeBloc extends BaseCubit<HomeState> {
   final ArticleUseCase _useCase;
 
   HomeBloc(this._useCase) : super(const HomeState.empty());
 
-  void search(String text) async {
-    if (text.isEmpty) {
-      emit(const HomeState.empty());
-      return;
+  Future<void> search(String text) async {
+    try {
+      if (text.isEmpty) {
+        emit(const HomeState.empty());
+        return;
+      }
+
+      emit(const HomeState.loading());
+
+      final data = await _useCase.searchArticles(text);
+      final articles = _mapArticles(data);
+      if (articles.isEmpty) {
+        emit(const HomeState.noResults());
+      } else {
+        emit(HomeState.content(searchResult: data, headlines: articles));
+      }
+    } on SearchArticleNoResultsException {
+      emit(const HomeState.noResults());
+    } on SearchArticleInvalidQueryException catch (error) {
+      emit(HomeState.error(error));
     }
-
-    emit(const HomeState.loading());
-
-    final result = await _useCase.searchArticles(text);
-    final newState = result.when(
-      success: (data) {
-        final articles = _mapArticles(data);
-        if (articles.isEmpty) {
-          return const HomeState.noResults();
-        } else {
-          return HomeState.content(searchResult: data, headlines: articles);
-        }
-      },
-      failure: (error) {
-        if (error == SearchArticleError.noResults) {
-          return const HomeState.noResults();
-        } else {
-          return HomeState.error(error);
-        }
-      },
-    );
-
-    emit(newState);
   }
 
   List<HomeArticleHeadline> _mapArticles(SearchResult result) {

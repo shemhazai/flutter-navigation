@@ -1,15 +1,17 @@
 import 'package:get_it/get_it.dart';
-import 'package:injectable/injectable.dart';
+import 'package:navigation/app/di/modules/blocs_module.dart';
+import 'package:navigation/app/di/modules/repositories_module.dart';
+import 'package:navigation/app/di/modules/use_cases_module.dart';
 import 'package:navigation/common/data/app_environment.dart';
 
-import 'di.config.dart';
 
-final getIt = GetIt.instance;
+final GetIt getIt = GetIt.instance;
 
-@injectableInit
 void configureDependencies(AppEnvironment environment) {
   getIt.registerSingleton(environment);
-  $initGetIt(getIt, environment: environment.name);
+  RepositoriesModule.register(getIt);
+  UseCasesModule.register(getIt);
+  BlocsModule.register(getIt);
 }
 
 /// Inject the dependency from get_it.

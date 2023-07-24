@@ -8,77 +8,89 @@ class TextThemes {
     final TextStyle base = GoogleFonts.montserrat();
 
     return TextTheme(
-      headline1: base.copyWith(
+      displayLarge: base.copyWith(
         fontSize: 40,
         fontWeight: FontWeight.w700,
         color: colors.textHeadline,
         letterSpacing: 0.2,
       ),
-      headline2: base.copyWith(
+      displayMedium: base.copyWith(
         fontSize: 32,
         fontWeight: FontWeight.w700,
         color: colors.textHeadline,
         letterSpacing: 0.2,
       ),
-      headline3: base.copyWith(
+      displaySmall: base.copyWith(
         fontSize: 28,
         fontWeight: FontWeight.w700,
         color: colors.textHeadline,
         letterSpacing: 0.2,
       ),
-      headline4: base.copyWith(
+      headlineLarge: base.copyWith(
+        fontSize: 26,
+        fontWeight: FontWeight.w700,
+        color: colors.textHeadline,
+        letterSpacing: 0.25,
+      ),
+      headlineMedium: base.copyWith(
         fontSize: 24,
         fontWeight: FontWeight.w700,
         color: colors.textHeadline,
         letterSpacing: 0.25,
       ),
-      headline5: base.copyWith(
+      headlineSmall: base.copyWith(
         fontSize: 22,
         fontWeight: FontWeight.w600,
         color: colors.textHeadline,
         letterSpacing: 0,
       ),
-      headline6: base.copyWith(
+      titleLarge: base.copyWith(
         fontSize: 18,
         fontWeight: FontWeight.w600,
         color: colors.textHeadline.withOpacity(0.8),
         letterSpacing: 0.15,
       ),
-      subtitle1: base.copyWith(
+      titleMedium: base.copyWith(
         fontSize: 16,
         fontWeight: FontWeight.w500,
         color: colors.textHeadline,
         letterSpacing: 0.15,
       ),
-      subtitle2: base.copyWith(
+      titleSmall: base.copyWith(
         fontSize: 14,
         fontWeight: FontWeight.w500,
         color: colors.textHeadline,
         letterSpacing: 0.5,
       ),
-      bodyText1: base.copyWith(
+      bodyLarge: base.copyWith(
         fontSize: 16,
         fontWeight: FontWeight.w500,
         color: colors.textBody,
       ),
-      bodyText2: base.copyWith(
+      bodyMedium: base.copyWith(
         fontSize: 14,
         fontWeight: FontWeight.w600,
         color: colors.textBody,
       ),
-      button: base.copyWith(
+      bodySmall: base.copyWith(
+        fontSize: 12,
+        fontWeight: FontWeight.w600,
+        color: colors.textBody,
+        letterSpacing: 0,
+      ),
+      labelLarge: base.copyWith(
         fontSize: 15,
         fontWeight: FontWeight.bold,
         color: colors.textBody,
         height: 1.2,
       ),
-      caption: base.copyWith(
+      labelMedium: base.copyWith(
         fontSize: 12,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.normal,
         color: colors.textCaption,
-        letterSpacing: 0,
+        letterSpacing: 1.5,
       ),
-      overline: base.copyWith(
+      labelSmall: base.copyWith(
         fontSize: 10,
         fontWeight: FontWeight.normal,
         color: colors.textCaption,

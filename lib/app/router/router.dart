@@ -1,12 +1,14 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:navigation/app/pages/article/article_page.dart';
-import 'package:navigation/app/pages/home/home_page.dart';
+import 'package:navigation/app/router/router.gr.dart';
 
-@MaterialAutoRouter(
-  replaceInRouteName: 'Page,Route',
-  routes: [
-    AutoRoute(path: '/', page: HomePage, initial: true),
-    AutoRoute(path: '/article', page: ArticlePage),
-  ],
-)
-class $AppRouter {}
+@AutoRouterConfig(replaceInRouteName: 'Page,Route')
+class AppRouter extends $AppRouter {
+  @override
+  RouteType get defaultRouteType => const RouteType.material();
+
+  @override
+  final List<AutoRoute> routes = [
+    AutoRoute(path: '/', page: HomeRoute.page, initial: true),
+    AutoRoute(path: '/article', page: ArticleRoute.page),
+  ];
+}

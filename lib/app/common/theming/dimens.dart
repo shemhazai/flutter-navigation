@@ -5,16 +5,16 @@ class Dimens {
   const Dimens();
 
   // buttons
-  static const double buttonRoundCorners = 25.0;
-  static const double buttonRectCorners = 6.0;
-  static const double buttonElevation = 5.0;
+  static const double buttonRoundCorners = 25;
+  static const double buttonRectCorners = 6;
+  static const double buttonElevation = 5;
   static const double buttonBorder = 1.5;
 
   // icons
-  static const double iconSize = 20.0;
+  static const double iconSize = 20;
 
   // text fields
-  static const double textFieldCorners = 10.0;
+  static const double textFieldCorners = 10;
 }
 
 /// Holds commonly used paddings.
