@@ -120,9 +120,9 @@ static const Color errorColor = Color(0xFF0000); // wrong name: redColor.
   - **widgets** *// reusable widgets*
 - **common** *// commonly used things in the whole project, do not relate directly either to presentation nor model*
   - **extensions** *// reusable, universal utils (neither model nor app)*
-- **model** *// business logic & repositories*
-  - **{feature}/entity** *// model classes for a given feature*
-  - **{feature}/repository** */ abstraction & implementation for the data source*
+- **features** *// business logic & repositories*
+  - **{feature}/domain/entity** *// model classes for a given feature*
+  - **{feature}/data/repository** */ abstraction & implementation for the data source*
     - **api** *// retrofit or any other API*
 
 # 11. General principles
