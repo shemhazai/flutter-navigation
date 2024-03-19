@@ -8,7 +8,7 @@ import 'package:navigation/app/di/di.dart';
 import 'package:navigation/app/pages/article/article_page.dart';
 import 'package:navigation/app/pages/home/home_bloc.dart';
 import 'package:navigation/app/pages/home/home_state.dart';
-import 'package:navigation/domain/article/entity/article.dart';
+import 'package:navigation/features/article/domain/entity/article.dart';
 import 'package:navigation/generated/locale_keys.g.dart';
 
 /// An initial page of the application, allows to search for articles.

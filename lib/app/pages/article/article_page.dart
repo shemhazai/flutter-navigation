@@ -6,7 +6,7 @@ import 'package:navigation/app/common/theming/dimens.dart';
 import 'package:navigation/app/router/router.gr.dart';
 import 'package:navigation/app/widgets/markdown_widget.dart';
 import 'package:navigation/common/extensions/images.dart';
-import 'package:navigation/domain/article/entity/article.dart';
+import 'package:navigation/features/article/domain/entity/article.dart';
 import 'package:navigation/generated/locale_keys.g.dart';
 
 /// A page that displays article details.

@@ -1,9 +1,9 @@
 import 'package:navigation/app/common/bloc/base_cubit.dart';
 import 'package:navigation/app/pages/home/home_page.dart';
 import 'package:navigation/app/pages/home/home_state.dart';
-import 'package:navigation/domain/article/article_use_case.dart';
-import 'package:navigation/domain/article/entity/article.dart';
-import 'package:navigation/domain/article/exception/article_exceptions.dart';
+import 'package:navigation/features/article/domain/article_use_case.dart';
+import 'package:navigation/features/article/domain/entity/article.dart';
+import 'package:navigation/features/article/domain/exception/article_exceptions.dart';
 
 /// State management for the [HomePage].
 class HomeBloc extends BaseCubit<HomeState> {

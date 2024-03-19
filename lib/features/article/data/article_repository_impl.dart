@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:navigation/common/logger/logger.dart';
-import 'package:navigation/domain/article/entity/article.dart';
-import 'package:navigation/domain/article/exception/article_exceptions.dart';
-import 'package:navigation/domain/article/repository/api/article_api.dart';
-import 'package:navigation/domain/article/repository/article_repository.dart';
+import 'package:navigation/features/article/data/api/article_api.dart';
+import 'package:navigation/features/article/data/article_repository.dart';
+import 'package:navigation/features/article/domain/entity/article.dart';
+import 'package:navigation/features/article/domain/exception/article_exceptions.dart';
 
 const Logger _logger = Logger('ArticleRepository');
 

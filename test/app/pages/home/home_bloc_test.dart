@@ -3,8 +3,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:navigation/app/pages/home/home_bloc.dart';
 import 'package:navigation/app/pages/home/home_state.dart';
-import 'package:navigation/domain/article/article_use_case.dart';
-import 'package:navigation/domain/article/entity/article.dart';
+import 'package:navigation/features/article/domain/article_use_case.dart';
+import 'package:navigation/features/article/domain/entity/article.dart';
 
 class MockArticleUseCase extends Mock implements ArticleUseCase {}
 
