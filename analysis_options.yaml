@@ -17,7 +17,6 @@ linter:
     - avoid_dynamic_calls
     - avoid_empty_else
     - avoid_print
-    - avoid_returning_null_for_future
     # - avoid_slow_async_io # the synchronous methods are blocking
     - avoid_type_to_string
     - avoid_types_as_parameter_names
@@ -29,8 +28,6 @@ linter:
     # - diagnostic_describe_all_properties # time consuming (our widgets are for internal use only)
     - empty_statements
     - hash_and_equals
-    - iterable_contains_unrelated_type
-    - list_remove_unrelated_type
     - literal_only_boolean_expressions
     - no_adjacent_strings_in_list
     - no_duplicate_case_values
@@ -47,7 +44,6 @@ linter:
     - always_declare_return_types
     # - always_put_control_body_on_new_line # disabled to allow multi single-line ifs simulating swtich statement
     # - always_put_required_named_parameters_first # super.key is not required but usually goes first
-    - always_require_non_null_named_parameters
     # - always_specify_types # we aren't that strict
     - annotate_overrides
     # - avoid_annotating_with_dynamic # why not?

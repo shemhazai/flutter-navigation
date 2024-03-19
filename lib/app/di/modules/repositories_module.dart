@@ -3,9 +3,9 @@ import 'package:flutter/foundation.dart';
 import 'package:get_it/get_it.dart';
 import 'package:navigation/app/di/di.dart';
 import 'package:navigation/common/data/app_environment.dart';
-import 'package:navigation/model/article/repository/api/article_api.dart';
-import 'package:navigation/model/article/repository/article_repository.dart';
-import 'package:navigation/model/article/repository/article_repository_impl.dart';
+import 'package:navigation/domain/article/repository/api/article_api.dart';
+import 'package:navigation/domain/article/repository/article_repository.dart';
+import 'package:navigation/domain/article/repository/article_repository_impl.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 /// A module that provides apis/repositories/data sources for DI.

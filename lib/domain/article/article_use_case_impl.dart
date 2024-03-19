@@ -1,6 +1,6 @@
-import 'package:navigation/model/article/article_use_case.dart';
-import 'package:navigation/model/article/entity/article.dart';
-import 'package:navigation/model/article/repository/article_repository.dart';
+import 'package:navigation/domain/article/article_use_case.dart';
+import 'package:navigation/domain/article/entity/article.dart';
+import 'package:navigation/domain/article/repository/article_repository.dart';
 
 class ArticleUseCaseImpl implements ArticleUseCase {
   final ArticleRepository _repository;
