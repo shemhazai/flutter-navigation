@@ -90,7 +90,11 @@ InputDecorationTheme _inputDecorationTheme(TextTheme textTheme, AppColorScheme c
     fillColor: colors.background,
     filled: true,
     isDense: true,
-    hintStyle: textTheme.bodyLarge!.copyWith(color: colors.primaryContainer.withOpacity(0.8)),
+    hintStyle: textTheme.bodyLarge!.copyWith(
+      color: colors.primaryContainer.withAlpha(
+        Color.getAlphaFromOpacity(0.8),
+      ),
+    ),
     errorStyle: textTheme.bodySmall!.copyWith(color: colors.error),
     contentPadding: const EdgeInsets.symmetric(vertical: 13, horizontal: 14),
     border: border,

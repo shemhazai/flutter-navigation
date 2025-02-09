@@ -112,8 +112,6 @@ class AppColorScheme with _$AppColorScheme {
       secondary: secondary,
       secondaryContainer: secondaryContainer,
       onSecondary: onSecondary,
-      background: background,
-      onBackground: onBackground,
       surface: surface,
       onSurface: onSurface,
       error: error,

@@ -12,11 +12,11 @@ class ElevatedButtonStyles {
 
   static ButtonStyle base(Color color) {
     return ButtonStyle(
-      backgroundColor: MaterialStateProperty.all(color),
-      shadowColor: MaterialStateProperty.all(color),
-      elevation: MaterialStateProperty.all(Dimens.buttonElevation),
-      padding: MaterialStateProperty.all(Insets.button),
-      shape: MaterialStateProperty.all(
+      backgroundColor: WidgetStateProperty.all(color),
+      shadowColor: WidgetStateProperty.all(color),
+      elevation: WidgetStateProperty.all(Dimens.buttonElevation),
+      padding: WidgetStateProperty.all(Insets.button),
+      shape: WidgetStateProperty.all(
         const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(Dimens.buttonRoundCorners)),
         ),
@@ -40,10 +40,10 @@ class OutlinedButtonStyles {
     );
 
     return ButtonStyle(
-      side: MaterialStateProperty.all(borderSide),
-      foregroundColor: MaterialStateProperty.all(color.withAlpha(200)),
-      padding: MaterialStateProperty.all(Insets.button),
-      shape: MaterialStateProperty.all(
+      side: WidgetStateProperty.all(borderSide),
+      foregroundColor: WidgetStateProperty.all(color.withAlpha(200)),
+      padding: WidgetStateProperty.all(Insets.button),
+      shape: WidgetStateProperty.all(
         RoundedRectangleBorder(
           side: borderSide,
           borderRadius: const BorderRadius.all(Radius.circular(Dimens.buttonRoundCorners)),
@@ -83,14 +83,14 @@ class TextButtonStyles {
     required Color unselectedColor,
   }) {
     return ButtonStyle(
-      textStyle: MaterialStateProperty.all(textTheme.labelLarge!.copyWith(fontSize: 17)),
-      minimumSize: MaterialStateProperty.all(Size.zero),
-      padding: MaterialStateProperty.all(EdgeInsets.zero),
-      overlayColor: MaterialStateProperty.all(Colors.transparent),
-      foregroundColor: MaterialStateProperty.resolveWith((Set<MaterialState> states) {
-        if (states.contains(MaterialState.hovered)) return selectedColor;
-        if (states.contains(MaterialState.pressed)) return selectedColor;
-        if (states.contains(MaterialState.selected)) return selectedColor;
+      textStyle: WidgetStateProperty.all(textTheme.labelLarge!.copyWith(fontSize: 17)),
+      minimumSize: WidgetStateProperty.all(Size.zero),
+      padding: WidgetStateProperty.all(EdgeInsets.zero),
+      overlayColor: WidgetStateProperty.all(Colors.transparent),
+      foregroundColor: WidgetStateProperty.resolveWith((Set<WidgetState> states) {
+        if (states.contains(WidgetState.hovered)) return selectedColor;
+        if (states.contains(WidgetState.pressed)) return selectedColor;
+        if (states.contains(WidgetState.selected)) return selectedColor;
         return unselectedColor;
       }),
     );

@@ -47,7 +47,7 @@ class TextThemes {
       titleLarge: base.copyWith(
         fontSize: 18,
         fontWeight: FontWeight.w600,
-        color: colors.textHeadline.withOpacity(0.8),
+        color: colors.textHeadline.withAlpha(Color.getAlphaFromOpacity(0.8)),
         letterSpacing: 0.15,
       ),
       titleMedium: base.copyWith(
